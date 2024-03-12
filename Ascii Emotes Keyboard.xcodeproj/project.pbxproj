@@ -7,22 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91005B0F2BA0D7AF0039D12D /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91005B0E2BA0D7AF0039D12D /* SectionCell.swift */; };
+		91005B112BA0E3020039D12D /* EmoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91005B102BA0E3020039D12D /* EmoteCell.swift */; };
 		91D649532B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */; };
 		91D649552B9FBBBB005B99FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649542B9FBBBB005B99FF /* ContentView.swift */; };
-		91D649572B9FBBBC005B99FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649562B9FBBBC005B99FF /* Assets.xcassets */; };
 		91D6495A2B9FBBBC005B99FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649592B9FBBBC005B99FF /* Preview Assets.xcassets */; };
+		91D649672B9FBBC8005B99FF /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649662B9FBBC8005B99FF /* KeyboardViewController.swift */; };
+		91D6496B2B9FBBC8005B99FF /* Ascii Emotes.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 91D649642B9FBBC8005B99FF /* Ascii Emotes.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		91D649702B9FD557005B99FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649562B9FBBBC005B99FF /* Assets.xcassets */; };
+		91D649712B9FD57A005B99FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649562B9FBBBC005B99FF /* Assets.xcassets */; };
+		91D649752B9FF5A7005B99FF /* EmoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649742B9FF5A7005B99FF /* EmoteViewController.swift */; };
+		91D6497D2BA00DD7005B99FF /* Cat.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D649772BA00DD7005B99FF /* Cat.json */; };
+		91D6497E2BA00DD7005B99FF /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D649782BA00DD7005B99FF /* Love.json */; };
+		91D6497F2BA00DD7005B99FF /* Angry.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D649792BA00DD7005B99FF /* Angry.json */; };
+		91D649802BA00DD7005B99FF /* Sad.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D6497A2BA00DD7005B99FF /* Sad.json */; };
+		91D649812BA00DD7005B99FF /* Happy.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D6497B2BA00DD7005B99FF /* Happy.json */; };
+		91D649822BA00DD7005B99FF /* Bear.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D6497C2BA00DD7005B99FF /* Bear.json */; };
+		91D649842BA00E5C005B99FF /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649832BA00E5C005B99FF /* SectionViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		91D649692B9FBBC8005B99FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D649472B9FBBBB005B99FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91D649632B9FBBC8005B99FF;
+			remoteInfo = "Ascii Emotes";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		91D6496F2B9FBBC8005B99FF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				91D6496B2B9FBBC8005B99FF /* Ascii Emotes.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		91005B0E2BA0D7AF0039D12D /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		91005B102BA0E3020039D12D /* EmoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteCell.swift; sourceTree = "<group>"; };
 		91D6494F2B9FBBBB005B99FF /* Ascii Emotes Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ascii Emotes Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ascii_Emotes_KeyboardApp.swift; sourceTree = "<group>"; };
 		91D649542B9FBBBB005B99FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		91D649562B9FBBBC005B99FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91D649592B9FBBBC005B99FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		91D649642B9FBBC8005B99FF /* Ascii Emotes.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Ascii Emotes.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D649662B9FBBC8005B99FF /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		91D649682B9FBBC8005B99FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91D649742B9FF5A7005B99FF /* EmoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteViewController.swift; sourceTree = "<group>"; };
+		91D649772BA00DD7005B99FF /* Cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cat.json; sourceTree = "<group>"; };
+		91D649782BA00DD7005B99FF /* Love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Love.json; sourceTree = "<group>"; };
+		91D649792BA00DD7005B99FF /* Angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Angry.json; sourceTree = "<group>"; };
+		91D6497A2BA00DD7005B99FF /* Sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sad.json; sourceTree = "<group>"; };
+		91D6497B2BA00DD7005B99FF /* Happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Happy.json; sourceTree = "<group>"; };
+		91D6497C2BA00DD7005B99FF /* Bear.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bear.json; sourceTree = "<group>"; };
+		91D649832BA00E5C005B99FF /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		91D6494C2B9FBBBB005B99FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91D649612B9FBBC8005B99FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				91D649512B9FBBBB005B99FF /* Ascii Emotes Keyboard */,
+				91D649652B9FBBC8005B99FF /* Ascii Emotes */,
 				91D649502B9FBBBB005B99FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				91D6494F2B9FBBBB005B99FF /* Ascii Emotes Keyboard.app */,
+				91D649642B9FBBC8005B99FF /* Ascii Emotes.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +126,33 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		91D649652B9FBBC8005B99FF /* Ascii Emotes */ = {
+			isa = PBXGroup;
+			children = (
+				91D649762BA00DAA005B99FF /* EmoteData */,
+				91D649662B9FBBC8005B99FF /* KeyboardViewController.swift */,
+				91D649742B9FF5A7005B99FF /* EmoteViewController.swift */,
+				91D649832BA00E5C005B99FF /* SectionViewController.swift */,
+				91005B0E2BA0D7AF0039D12D /* SectionCell.swift */,
+				91005B102BA0E3020039D12D /* EmoteCell.swift */,
+				91D649682B9FBBC8005B99FF /* Info.plist */,
+			);
+			path = "Ascii Emotes";
+			sourceTree = "<group>";
+		};
+		91D649762BA00DAA005B99FF /* EmoteData */ = {
+			isa = PBXGroup;
+			children = (
+				91D649792BA00DD7005B99FF /* Angry.json */,
+				91D6497C2BA00DD7005B99FF /* Bear.json */,
+				91D649772BA00DD7005B99FF /* Cat.json */,
+				91D6497B2BA00DD7005B99FF /* Happy.json */,
+				91D649782BA00DD7005B99FF /* Love.json */,
+				91D6497A2BA00DD7005B99FF /* Sad.json */,
+			);
+			path = EmoteData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +163,34 @@
 				91D6494B2B9FBBBB005B99FF /* Sources */,
 				91D6494C2B9FBBBB005B99FF /* Frameworks */,
 				91D6494D2B9FBBBB005B99FF /* Resources */,
+				91D6496F2B9FBBC8005B99FF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				91D6496A2B9FBBC8005B99FF /* PBXTargetDependency */,
 			);
 			name = "Ascii Emotes Keyboard";
 			productName = "Ascii Emotes Keyboard";
 			productReference = 91D6494F2B9FBBBB005B99FF /* Ascii Emotes Keyboard.app */;
 			productType = "com.apple.product-type.application";
+		};
+		91D649632B9FBBC8005B99FF /* Ascii Emotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91D6496C2B9FBBC8005B99FF /* Build configuration list for PBXNativeTarget "Ascii Emotes" */;
+			buildPhases = (
+				91D649602B9FBBC8005B99FF /* Sources */,
+				91D649612B9FBBC8005B99FF /* Frameworks */,
+				91D649622B9FBBC8005B99FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ascii Emotes";
+			productName = "Ascii Emotes";
+			productReference = 91D649642B9FBBC8005B99FF /* Ascii Emotes.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +203,9 @@
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					91D6494E2B9FBBBB005B99FF = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					91D649632B9FBBC8005B99FF = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
@@ -116,6 +224,7 @@
 			projectRoot = "";
 			targets = (
 				91D6494E2B9FBBBB005B99FF /* Ascii Emotes Keyboard */,
+				91D649632B9FBBC8005B99FF /* Ascii Emotes */,
 			);
 		};
 /* End PBXProject section */
@@ -125,8 +234,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D649712B9FD57A005B99FF /* Assets.xcassets in Resources */,
 				91D6495A2B9FBBBC005B99FF /* Preview Assets.xcassets in Resources */,
-				91D649572B9FBBBC005B99FF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91D649622B9FBBC8005B99FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91D649812BA00DD7005B99FF /* Happy.json in Resources */,
+				91D6497D2BA00DD7005B99FF /* Cat.json in Resources */,
+				91D649702B9FD557005B99FF /* Assets.xcassets in Resources */,
+				91D6497E2BA00DD7005B99FF /* Love.json in Resources */,
+				91D6497F2BA00DD7005B99FF /* Angry.json in Resources */,
+				91D649802BA00DD7005B99FF /* Sad.json in Resources */,
+				91D649822BA00DD7005B99FF /* Bear.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +265,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91D649602B9FBBC8005B99FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91005B0F2BA0D7AF0039D12D /* SectionCell.swift in Sources */,
+				91005B112BA0E3020039D12D /* EmoteCell.swift in Sources */,
+				91D649842BA00E5C005B99FF /* SectionViewController.swift in Sources */,
+				91D649672B9FBBC8005B99FF /* KeyboardViewController.swift in Sources */,
+				91D649752B9FF5A7005B99FF /* EmoteViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		91D6496A2B9FBBC8005B99FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91D649632B9FBBC8005B99FF /* Ascii Emotes */;
+			targetProxy = 91D649692B9FBBC8005B99FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		91D6495B2B9FBBBC005B99FF /* Debug */ = {
@@ -267,6 +410,7 @@
 		91D6495E2B9FBBBC005B99FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +440,7 @@
 		91D6495F2B9FBBBC005B99FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -322,6 +467,56 @@
 			};
 			name = Release;
 		};
+		91D6496D2B9FBBC8005B99FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T6S3X5KD6C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ascii Emotes/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ascii Emotes";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Francia.Ascii-Emotes-Keyboard.Ascii-Emotes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91D6496E2B9FBBC8005B99FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T6S3X5KD6C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ascii Emotes/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ascii Emotes";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Francia.Ascii-Emotes-Keyboard.Ascii-Emotes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -339,6 +534,15 @@
 			buildConfigurations = (
 				91D6495E2B9FBBBC005B99FF /* Debug */,
 				91D6495F2B9FBBBC005B99FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91D6496C2B9FBBC8005B99FF /* Build configuration list for PBXNativeTarget "Ascii Emotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91D6496D2B9FBBC8005B99FF /* Debug */,
+				91D6496E2B9FBBC8005B99FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

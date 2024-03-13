@@ -10,6 +10,7 @@
 		91005B0F2BA0D7AF0039D12D /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91005B0E2BA0D7AF0039D12D /* SectionCell.swift */; };
 		91005B112BA0E3020039D12D /* EmoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91005B102BA0E3020039D12D /* EmoteCell.swift */; };
 		91191A072BA15AE3007C3389 /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91191A062BA15AE3007C3389 /* ControlButtonsView.swift */; };
+		91965AAD2BA235640097E6C9 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91965AAC2BA235640097E6C9 /* AppConstants.swift */; };
 		91D649532B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */; };
 		91D649552B9FBBBB005B99FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649542B9FBBBB005B99FF /* ContentView.swift */; };
 		91D6495A2B9FBBBC005B99FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649592B9FBBBC005B99FF /* Preview Assets.xcassets */; };
@@ -17,14 +18,14 @@
 		91D6496B2B9FBBC8005B99FF /* Ascii Emotes.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 91D649642B9FBBC8005B99FF /* Ascii Emotes.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		91D649702B9FD557005B99FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649562B9FBBBC005B99FF /* Assets.xcassets */; };
 		91D649712B9FD57A005B99FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649562B9FBBBC005B99FF /* Assets.xcassets */; };
-		91D649752B9FF5A7005B99FF /* EmoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649742B9FF5A7005B99FF /* EmoteViewController.swift */; };
+		91D649752B9FF5A7005B99FF /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649742B9FF5A7005B99FF /* SectionViewController.swift */; };
 		91D6497D2BA00DD7005B99FF /* Cat.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D649772BA00DD7005B99FF /* Cat.json */; };
 		91D6497E2BA00DD7005B99FF /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D649782BA00DD7005B99FF /* Love.json */; };
 		91D6497F2BA00DD7005B99FF /* Angry.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D649792BA00DD7005B99FF /* Angry.json */; };
 		91D649802BA00DD7005B99FF /* Sad.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D6497A2BA00DD7005B99FF /* Sad.json */; };
 		91D649812BA00DD7005B99FF /* Happy.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D6497B2BA00DD7005B99FF /* Happy.json */; };
 		91D649822BA00DD7005B99FF /* Bear.json in Resources */ = {isa = PBXBuildFile; fileRef = 91D6497C2BA00DD7005B99FF /* Bear.json */; };
-		91D649842BA00E5C005B99FF /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649832BA00E5C005B99FF /* SectionViewController.swift */; };
+		91D649842BA00E5C005B99FF /* EmotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649832BA00E5C005B99FF /* EmotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		91005B0E2BA0D7AF0039D12D /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		91005B102BA0E3020039D12D /* EmoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteCell.swift; sourceTree = "<group>"; };
 		91191A062BA15AE3007C3389 /* ControlButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
+		91965AAC2BA235640097E6C9 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		91D6494F2B9FBBBB005B99FF /* Ascii Emotes Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ascii Emotes Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ascii_Emotes_KeyboardApp.swift; sourceTree = "<group>"; };
 		91D649542B9FBBBB005B99FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,14 +65,14 @@
 		91D649642B9FBBC8005B99FF /* Ascii Emotes.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Ascii Emotes.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D649662B9FBBC8005B99FF /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		91D649682B9FBBC8005B99FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91D649742B9FF5A7005B99FF /* EmoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteViewController.swift; sourceTree = "<group>"; };
+		91D649742B9FF5A7005B99FF /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		91D649772BA00DD7005B99FF /* Cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cat.json; sourceTree = "<group>"; };
 		91D649782BA00DD7005B99FF /* Love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Love.json; sourceTree = "<group>"; };
 		91D649792BA00DD7005B99FF /* Angry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Angry.json; sourceTree = "<group>"; };
 		91D6497A2BA00DD7005B99FF /* Sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sad.json; sourceTree = "<group>"; };
 		91D6497B2BA00DD7005B99FF /* Happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Happy.json; sourceTree = "<group>"; };
 		91D6497C2BA00DD7005B99FF /* Bear.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bear.json; sourceTree = "<group>"; };
-		91D649832BA00E5C005B99FF /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
+		91D649832BA00E5C005B99FF /* EmotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9129BDA32BA234880041B2E9 /* SectionView */ = {
+			isa = PBXGroup;
+			children = (
+				91D649742B9FF5A7005B99FF /* SectionViewController.swift */,
+				91005B0E2BA0D7AF0039D12D /* SectionCell.swift */,
+			);
+			path = SectionView;
+			sourceTree = "<group>";
+		};
+		9129BDA42BA234920041B2E9 /* EmoteView */ = {
+			isa = PBXGroup;
+			children = (
+				91D649832BA00E5C005B99FF /* EmotesViewController.swift */,
+				91005B102BA0E3020039D12D /* EmoteCell.swift */,
+			);
+			path = EmoteView;
+			sourceTree = "<group>";
+		};
 		91D649462B9FBBBB005B99FF = {
 			isa = PBXGroup;
 			children = (
@@ -131,12 +151,12 @@
 		91D649652B9FBBC8005B99FF /* Ascii Emotes */ = {
 			isa = PBXGroup;
 			children = (
-				91D649762BA00DAA005B99FF /* EmoteData */,
+				91965AAC2BA235640097E6C9 /* AppConstants.swift */,
 				91D649662B9FBBC8005B99FF /* KeyboardViewController.swift */,
-				91D649742B9FF5A7005B99FF /* EmoteViewController.swift */,
-				91D649832BA00E5C005B99FF /* SectionViewController.swift */,
-				91005B0E2BA0D7AF0039D12D /* SectionCell.swift */,
-				91005B102BA0E3020039D12D /* EmoteCell.swift */,
+				91191A062BA15AE3007C3389 /* ControlButtonsView.swift */,
+				9129BDA32BA234880041B2E9 /* SectionView */,
+				9129BDA42BA234920041B2E9 /* EmoteView */,
+				91D649762BA00DAA005B99FF /* EmoteData */,
 				91D649682B9FBBC8005B99FF /* Info.plist */,
 			);
 			path = "Ascii Emotes";
@@ -151,7 +171,6 @@
 				91D6497B2BA00DD7005B99FF /* Happy.json */,
 				91D649782BA00DD7005B99FF /* Love.json */,
 				91D6497A2BA00DD7005B99FF /* Sad.json */,
-				91191A062BA15AE3007C3389 /* ControlButtonsView.swift */,
 			);
 			path = EmoteData;
 			sourceTree = "<group>";
@@ -274,10 +293,11 @@
 			files = (
 				91005B0F2BA0D7AF0039D12D /* SectionCell.swift in Sources */,
 				91005B112BA0E3020039D12D /* EmoteCell.swift in Sources */,
-				91D649842BA00E5C005B99FF /* SectionViewController.swift in Sources */,
+				91D649842BA00E5C005B99FF /* EmotesViewController.swift in Sources */,
 				91D649672B9FBBC8005B99FF /* KeyboardViewController.swift in Sources */,
+				91965AAD2BA235640097E6C9 /* AppConstants.swift in Sources */,
 				91191A072BA15AE3007C3389 /* ControlButtonsView.swift in Sources */,
-				91D649752B9FF5A7005B99FF /* EmoteViewController.swift in Sources */,
+				91D649752B9FF5A7005B99FF /* SectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

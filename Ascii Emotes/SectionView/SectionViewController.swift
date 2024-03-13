@@ -7,25 +7,15 @@
 
 import UIKit
 
-protocol EmoteViewControllerDelegate: AnyObject {
-    func emoteViewControllerDidDismiss()
+protocol SectionViewControllerDelegate: AnyObject {
+    func SectionViewControllerDidDismiss()
 }
 
 // Emote Section Selection UICollection
-class EmoteViewController: UIViewController {
+class SectionViewController: UIViewController {
     var textDocumentProxy: UITextDocumentProxy?
     var collectionView: UICollectionView!
     var controlButtonView: ControlButtonsView!
-    let sections: [(title: String, symbol: String)] = [
-        ("Happy", "(＾▽＾)"),
-        ("Sad", "｡：ﾟ(｡ﾉω＼｡)ﾟ･｡"),
-        ("Love", "(｡♥‿♥｡)"),
-        ("Angry", "(`皿´)"),
-        ("Bear", "ʕ·ᴥ·ʔ"),
-        ("Cat", "（＾・ω・＾）")
-    ]
-    // TESTING
-    //let sections = (1...26).map { "section\($0)" }
     
     // Styling ---------------------------------------
     let numberOfRows: CGFloat = 3
@@ -72,7 +62,7 @@ class EmoteViewController: UIViewController {
     
     func setupControlButtonView() {
         controlButtonView = ControlButtonsView(textDocumentProxy: textDocumentProxy!, actionType: "dismiss")
-        controlButtonView.action = {
+        controlButtonView.sectionButtonAction = {
             self.dismiss(animated: false, completion: nil)
         }
         
@@ -121,15 +111,15 @@ class EmoteViewController: UIViewController {
 }
 
 // EmoteViewController Extensions
-extension EmoteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SectionViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections.count
+        return AppConstants.sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionCell", for: indexPath) as! SectionCell
-        cell.titleLabel.text = sections[indexPath.item].title
-        cell.symbolLabel.text = sections[indexPath.item].symbol
+        cell.titleLabel.text = AppConstants.sections[indexPath.item].title
+        cell.symbolLabel.text = AppConstants.sections[indexPath.item].symbol
         cell.delegate = self
         return cell
     }
@@ -145,13 +135,13 @@ extension EmoteViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 
-extension EmoteViewController: SectionCellDelegate {
+extension SectionViewController: SectionCellDelegate {
     func didSelectEmoteSection(sectionTitle: String) {
-        let sectionViewController = SectionViewController()
-        sectionViewController.sectionTitle = sectionTitle
-        sectionViewController.textDocumentProxy = self.textDocumentProxy!
-        sectionViewController.modalPresentationStyle = .fullScreen
+        let emotesViewController = EmotesViewController()
+        emotesViewController.sectionTitle = sectionTitle
+        emotesViewController.textDocumentProxy = self.textDocumentProxy!
+        emotesViewController.modalPresentationStyle = .fullScreen
             
-        present(sectionViewController, animated: false, completion: nil)
+        present(emotesViewController, animated: false, completion: nil)
     }
 }

@@ -80,15 +80,10 @@ class KeyboardViewController: UIInputViewController {
         
         // Setup keyboard
         setupKeyboard()
-   
-        // Testing
-        print("DEBUG VIEWING ----------------------------")
-        for (emote, i) in frequentlyUsedEmotesArray {
-            print("\(emote) : \(i)")
-        }
     }
-        
-    // FREQ EMOTES -------------------------------------------------------------------------------
+            
+    // FREQ EMOTES
+    //---------------------------------------------------------------------------------
     // Handle Notification Post
     @objc func handleFrequentlyUsedEmotesDidChange() {
         sortFrequentlyUsedEmotes()
@@ -158,12 +153,14 @@ class KeyboardViewController: UIInputViewController {
     
     func setupControlButtonView() {
         controlButtonView = ControlButtonsView(textDocumentProxy: textDocumentProxy, actionType: "present")
-        controlButtonView.action = {
-            let emoteViewController = EmoteViewController()
-            emoteViewController.modalPresentationStyle = .fullScreen
-            emoteViewController.textDocumentProxy = self.textDocumentProxy
-            self.present(emoteViewController, animated: false, completion: nil)
+        controlButtonView.delegate = self
+        controlButtonView.sectionButtonAction = {
+            let sectionViewController = SectionViewController()
+            sectionViewController.modalPresentationStyle = .fullScreen
+            sectionViewController.textDocumentProxy = self.textDocumentProxy
+            self.present(sectionViewController, animated: false, completion: nil)
         }
+
         
         view.addSubview(controlButtonView)
         controlButtonView.translatesAutoresizingMaskIntoConstraints = false
@@ -238,5 +235,20 @@ extension KeyboardViewController: EmoteCellDelegate {
     func didSelectEmote(emote: String) {
         textDocumentProxy.insertText(emote)
         updateFrequentlyUsedEmotes(emote: emote)
+    }
+}
+
+// CONTROL BUTTON SECTION SCROLL DELEGATE
+// --------------------------------------------------------------------------------
+
+extension KeyboardViewController: ControlButtonViewDelegate {
+    func didSelectSectionButton(withTitle title: String) {
+        print("Delegate Call 3!")
+        let emotesViewController = EmotesViewController()
+        emotesViewController.sectionTitle = title
+        emotesViewController.textDocumentProxy = textDocumentProxy
+        emotesViewController.modalPresentationStyle = .fullScreen
+            
+        present(emotesViewController, animated: false, completion: nil)
     }
 }

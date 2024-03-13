@@ -9,7 +9,7 @@ import UIKit
 
 
 // Emotes, within a section, Selection UICollection
-class SectionViewController: UIViewController {
+class EmotesViewController: UIViewController {
     var controlButtonView: ControlButtonsView!
     var textDocumentProxy: UITextDocumentProxy?
     var sectionTitle: String?
@@ -63,7 +63,7 @@ class SectionViewController: UIViewController {
     
     func setupControlButtonView() {
         controlButtonView = ControlButtonsView(textDocumentProxy: textDocumentProxy!, actionType: "dismiss")
-        controlButtonView.action = {
+        controlButtonView.sectionButtonAction = {
             self.dismiss(animated: false, completion: nil)
         }
         
@@ -161,7 +161,7 @@ class SectionViewController: UIViewController {
 }
 
 // EmoteViewController Extensions
-extension SectionViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension EmotesViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return emotes.count
     }
@@ -184,7 +184,7 @@ extension SectionViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
-extension SectionViewController: EmoteCellDelegate {
+extension EmotesViewController: EmoteCellDelegate {
     func didSelectEmote(emote: String) {
         textDocumentProxy?.insertText(emote)
         addFrequentlyUsedEmotes(emote: emote)

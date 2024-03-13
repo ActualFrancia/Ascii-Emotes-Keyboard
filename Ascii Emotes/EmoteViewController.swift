@@ -15,8 +15,7 @@ protocol EmoteViewControllerDelegate: AnyObject {
 class EmoteViewController: UIViewController {
     var textDocumentProxy: UITextDocumentProxy?
     var collectionView: UICollectionView!
-    
-    // Sections
+    var controlButtonView: ControlButtonsView!
     let sections: [(title: String, symbol: String)] = [
         ("Happy", "(＾▽＾)"),
         ("Sad", "｡：ﾟ(｡ﾉω＼｡)ﾟ･｡"),
@@ -25,17 +24,19 @@ class EmoteViewController: UIViewController {
         ("Bear", "ʕ·ᴥ·ʔ"),
         ("Cat", "（＾・ω・＾）")
     ]
-    
     // TESTING
     //let sections = (1...26).map { "section\($0)" }
     
-    // Style
+    // Styling ---------------------------------------
     let numberOfRows: CGFloat = 3
-    let cellWidth: CGFloat = 90
+    let spacing: CGFloat = 7
+    
     let verticalPadding: CGFloat = 10
     let horizontalPadding: CGFloat = 10
-    let spacing: CGFloat = 7
-
+    
+    let cellWidth: CGFloat = 100
+    // ------------------------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,9 +44,7 @@ class EmoteViewController: UIViewController {
     }
     
     @objc private func dismissView() {
-        dismiss(animated: true) {
-            //
-        }
+        dismiss(animated: false, completion: nil)
     }
     
     @objc private func cancelDismissView() {
@@ -67,8 +66,23 @@ class EmoteViewController: UIViewController {
             titleLabel.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 10),
         ])
         
+        setupControlButtonView()
         setupCollectionView()
-        backButton()
+    }
+    
+    func setupControlButtonView() {
+        controlButtonView = ControlButtonsView(textDocumentProxy: textDocumentProxy!, actionType: "dismiss")
+        controlButtonView.action = {
+            self.dismiss(animated: false, completion: nil)
+        }
+        
+        view.addSubview(controlButtonView)
+        controlButtonView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            controlButtonView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            controlButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            controlButtonView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     private func setupCollectionView() {
@@ -101,29 +115,8 @@ class EmoteViewController: UIViewController {
               collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
               collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
               collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-              collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+              collectionView.bottomAnchor.constraint(equalTo: controlButtonView.topAnchor)
           ])
-    }
-    
-
-    
-    func backButton() {
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(systemName: "arrowshape.backward.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)), for: .normal)
-        backButton.setImage(UIImage(systemName: "arrowshape.backward.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)), for: .highlighted)
-        backButton.tintColor = UIColor(named: "ControlColor")
-        
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-
-        backButton.addTarget(self, action: #selector(dismissView), for: .touchDown)
-        backButton.addTarget(self, action: #selector(cancelDismissView), for: [.touchUpInside, .touchUpOutside, .touchCancel])
-
-        // Add to View
-        view.addSubview(backButton)
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-        ])
     }
 }
 
@@ -148,10 +141,7 @@ extension EmoteViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let availableHeight = collectionView.bounds.height - totalVerticalPadding - totalSpacing
         let height = availableHeight / numberOfRows
         
-        // Adjusting width based on content
-        let width = cellWidth
-        
-        return CGSize(width: width, height: height)
+        return CGSize(width: cellWidth, height: height)
     }
 }
 

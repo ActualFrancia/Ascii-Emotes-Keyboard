@@ -18,8 +18,7 @@ class EmoteCell: UICollectionViewCell {
     var emote: String?
     
     // Style
-    let emoteShadowOpacity: Float = 0.2
-    let shadowOpacity: Float = 1
+    let shadowOpacity: Float = 0.3
     let cornerRadius: CGFloat = 8
     let animationDelay = 0.1
     
@@ -41,23 +40,17 @@ class EmoteCell: UICollectionViewCell {
         emoteLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(emoteLabel)
         
-        // Label Style
-        emoteLabel.layer.shadowColor = UIColor.black.cgColor
-        emoteLabel.layer.shadowOffset = CGSize(width: 0, height: 2)
-        emoteLabel.layer.shadowOpacity = emoteShadowOpacity
-        emoteLabel.layer.shadowRadius = 2
-        
         NSLayoutConstraint.activate([
             emoteLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             emoteLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
         
-        backgroundColor = .clear
+        backgroundColor = UIColor(named: "PrimaryButtonColor")
         // Drop Shadow
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0
+        layer.shadowOpacity = shadowOpacity
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 0
     }
@@ -72,7 +65,6 @@ class EmoteCell: UICollectionViewCell {
         
         // Style on Touch
         emoteLabel.layer.shadowOpacity = 0
-        backgroundColor = UIColor(named: "PrimaryButtonColor")
         layer.shadowOpacity = shadowOpacity
     }
     
@@ -91,9 +83,6 @@ class EmoteCell: UICollectionViewCell {
             self.emoteBox?.removeFromSuperview()
             
             // End Touch
-            self.emoteLabel.layer.shadowOpacity = self.emoteShadowOpacity
-            self.backgroundColor = .clear
-            self.layer.shadowOpacity = 0
         }
     }
     
@@ -103,11 +92,6 @@ class EmoteCell: UICollectionViewCell {
         DispatchQueue.main.asyncAfter(deadline: .now() + animationDelay) {
             // Close Box
             self.emoteBox?.removeFromSuperview()
-            
-            // End Touch
-            self.emoteLabel.layer.shadowOpacity = self.emoteShadowOpacity
-            self.backgroundColor = .clear
-            self.layer.shadowOpacity = 0
         }
     }
     

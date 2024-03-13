@@ -17,7 +17,7 @@ class SectionCell: UICollectionViewCell {
     var symbolLabel: UILabel!
     
     // Style
-    let shadowOpacity: Float = 0.2
+    let shadowOpacity: Float = 0.3
     let cornerRadius: CGFloat = 8
     let animationDelay = 0.05
 

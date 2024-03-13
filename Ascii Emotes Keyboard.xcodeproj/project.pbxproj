@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		91005B0F2BA0D7AF0039D12D /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91005B0E2BA0D7AF0039D12D /* SectionCell.swift */; };
 		91005B112BA0E3020039D12D /* EmoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91005B102BA0E3020039D12D /* EmoteCell.swift */; };
+		91191A072BA15AE3007C3389 /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91191A062BA15AE3007C3389 /* ControlButtonsView.swift */; };
 		91D649532B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */; };
 		91D649552B9FBBBB005B99FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649542B9FBBBB005B99FF /* ContentView.swift */; };
 		91D6495A2B9FBBBC005B99FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649592B9FBBBC005B99FF /* Preview Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		91005B0E2BA0D7AF0039D12D /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		91005B102BA0E3020039D12D /* EmoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteCell.swift; sourceTree = "<group>"; };
+		91191A062BA15AE3007C3389 /* ControlButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
 		91D6494F2B9FBBBB005B99FF /* Ascii Emotes Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ascii Emotes Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ascii_Emotes_KeyboardApp.swift; sourceTree = "<group>"; };
 		91D649542B9FBBBB005B99FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				91D6497B2BA00DD7005B99FF /* Happy.json */,
 				91D649782BA00DD7005B99FF /* Love.json */,
 				91D6497A2BA00DD7005B99FF /* Sad.json */,
+				91191A062BA15AE3007C3389 /* ControlButtonsView.swift */,
 			);
 			path = EmoteData;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				91005B112BA0E3020039D12D /* EmoteCell.swift in Sources */,
 				91D649842BA00E5C005B99FF /* SectionViewController.swift in Sources */,
 				91D649672B9FBBC8005B99FF /* KeyboardViewController.swift in Sources */,
+				91191A072BA15AE3007C3389 /* ControlButtonsView.swift in Sources */,
 				91D649752B9FF5A7005B99FF /* EmoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

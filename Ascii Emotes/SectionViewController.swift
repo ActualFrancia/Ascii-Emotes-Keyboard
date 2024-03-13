@@ -10,19 +10,22 @@ import UIKit
 
 // Emotes, within a section, Selection UICollection
 class SectionViewController: UIViewController {
+    var controlButtonView: ControlButtonsView!
     var textDocumentProxy: UITextDocumentProxy?
     var sectionTitle: String?
     var emotes: [String] = []
     var collectionView: UICollectionView!
     var buttonActions = [UIButton: () -> Void]()
     
-    // Style
+    // Styling ---------------------------------------
     let numberOfRows: CGFloat = 4
-    let cellWidthPadding: CGFloat = 20
+    let spacing: CGFloat = 7
+    
     let verticalPadding: CGFloat = 10
     let horizontalPadding: CGFloat = 10
-    let spacing: CGFloat = 7
-    let cellHeight: CGFloat = 49
+    
+    let cellWidth: CGFloat = 100
+    // -----------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,11 +57,23 @@ class SectionViewController: UIViewController {
             titleLabel.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 10),
         ])
         
-        
+        setupControlButtonView()
         loadEmoteSections()
+    }
+    
+    func setupControlButtonView() {
+        controlButtonView = ControlButtonsView(textDocumentProxy: textDocumentProxy!, actionType: "dismiss")
+        controlButtonView.action = {
+            self.dismiss(animated: false, completion: nil)
+        }
         
-        backButton()
-
+        view.addSubview(controlButtonView)
+        controlButtonView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            controlButtonView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            controlButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            controlButtonView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     func loadEmoteSections() {
@@ -140,26 +155,7 @@ class SectionViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
-    func backButton() {
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(systemName: "arrowshape.backward.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)), for: .normal)
-        backButton.setImage(UIImage(systemName: "arrowshape.backward.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)), for: .highlighted)
-        backButton.tintColor = UIColor(named: "ControlColor")
-        
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-
-        backButton.addTarget(self, action: #selector(dismissView), for: .touchDown)
-        backButton.addTarget(self, action: #selector(cancelDismissView), for: [.touchUpInside, .touchUpOutside, .touchCancel])
-
-        // Add to View
-        view.addSubview(backButton)
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: controlButtonView.topAnchor)
         ])
     }
 }
@@ -178,10 +174,13 @@ extension SectionViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Adjusting width based on content
-        let width = emotes[indexPath.item].size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0)]).width + cellWidthPadding
+        let totalVerticalPadding: CGFloat = verticalPadding * 2
+        let totalSpacing = spacing * (numberOfRows - 1)
         
-        return CGSize(width: width, height: cellHeight)
+        let availableHeight = collectionView.bounds.height - totalVerticalPadding - totalSpacing
+        let height = availableHeight / numberOfRows
+        
+        return CGSize(width: cellWidth, height: height)
     }
 }
 

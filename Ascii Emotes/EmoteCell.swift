@@ -21,6 +21,7 @@ class EmoteCell: UICollectionViewCell {
     let emoteShadowOpacity: Float = 0.2
     let shadowOpacity: Float = 1
     let cornerRadius: CGFloat = 8
+    let animationDelay = 0.1
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,29 +78,37 @@ class EmoteCell: UICollectionViewCell {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        // Close Box
-        emoteBox?.removeFromSuperview()
+
         
         // Type Emote
         if let emote = emote {
             delegate?.didSelectEmote(emote: emote)
         }
         
-        // End Touch
-        emoteLabel.layer.shadowOpacity = emoteShadowOpacity
-        backgroundColor = .clear
-        layer.shadowOpacity = 0
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationDelay) {
+            // Close Box
+            self.emoteBox?.removeFromSuperview()
+            
+            // End Touch
+            self.emoteLabel.layer.shadowOpacity = self.emoteShadowOpacity
+            self.backgroundColor = .clear
+            self.layer.shadowOpacity = 0
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        // Close Box
-        emoteBox?.removeFromSuperview()
         
-        // End Touch
-        emoteLabel.layer.shadowOpacity = emoteShadowOpacity
-        backgroundColor = .clear
-        layer.shadowOpacity = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationDelay) {
+            // Close Box
+            self.emoteBox?.removeFromSuperview()
+            
+            // End Touch
+            self.emoteLabel.layer.shadowOpacity = self.emoteShadowOpacity
+            self.backgroundColor = .clear
+            self.layer.shadowOpacity = 0
+        }
     }
     
     private func boxView(with emote: String) -> UIView {

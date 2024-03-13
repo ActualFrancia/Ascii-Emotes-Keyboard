@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EmoteViewControllerDelegate: AnyObject {
+    func emoteViewControllerDidDismiss()
+}
+
 // Emote Section Selection UICollection
 class EmoteViewController: UIViewController {
     var textDocumentProxy: UITextDocumentProxy?
@@ -39,7 +43,9 @@ class EmoteViewController: UIViewController {
     }
     
     @objc private func dismissView() {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true) {
+            //
+        }
     }
     
     @objc private func cancelDismissView() {

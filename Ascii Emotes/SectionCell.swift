@@ -19,6 +19,8 @@ class SectionCell: UICollectionViewCell {
     // Style
     let shadowOpacity: Float = 0.2
     let cornerRadius: CGFloat = 8
+    let animationDelay = 0.05
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,30 +73,30 @@ class SectionCell: UICollectionViewCell {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        
-        // Store the original background color
-        //originalBackgroundColor = backgroundColor
-        
-        // Change the background color when pressed
         backgroundColor = UIColor(named: "PressedPrimaryButtonColor")
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         
-        // Open Section
-        if let sectionTitle = self.titleLabel.text {
-            self.delegate?.didSelectEmoteSection(sectionTitle: sectionTitle)
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationDelay) {
+            // Open Section
+            if let sectionTitle = self.titleLabel.text {
+                self.delegate?.didSelectEmoteSection(sectionTitle: sectionTitle)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.animationDelay) {
+                // Revert back to the original background color when released
+                self.backgroundColor = UIColor(named: "PrimaryButtonColor")
+            }
         }
-        
-        // Revert back to the original background color when released
-        backgroundColor = UIColor(named: "PrimaryButtonColor")
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        
-        // Revert back to the original background color when touch is cancelled
-        backgroundColor = UIColor(named: "PrimaryButtonColor")
+        // Revert back to the original background color when canceled
+        DispatchQueue.main.asyncAfter(deadline: .now() + animationDelay) {
+            self.backgroundColor = UIColor(named: "PrimaryButtonColor")
+        }
     }
 }

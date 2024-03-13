@@ -7,14 +7,26 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let frequentlyUsedEmotesDidChange = Notification.Name("FrequentlyUsedEmotesDidChange")
+}
+
 class KeyboardViewController: UIInputViewController {
     
-    @IBOutlet var nextKeyboardButton: UIButton!
+    var collectionView: UICollectionView!
+    var controlStackView: UIStackView!
     
-    private var defaultsObserver: NSKeyValueObservation?
+    // Style
+    let numberOfRows: CGFloat = 4
+    let cellWidthPadding: CGFloat = 20
+    let verticalCollectionPadding: CGFloat = 10
+    let horizontalCollectionPadding: CGFloat = 10
+    let spacing: CGFloat = 7
+    let cellHeight: CGFloat = 49
     
-    var buttonActions = [UIButton: () -> Void]()
-    
+    // Frequently Used
+    var frequentlyUsedEmotesArray: [(emote: String, count: Int)] = []
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -39,6 +51,10 @@ class KeyboardViewController: UIInputViewController {
         )
             
         view.addConstraint(heightConstraint)
+        
+        // Update Data before User Sees
+        sortFrequentlyUsedEmotes()
+        collectionView.reloadData()
     }
     
     override func updateViewConstraints() {
@@ -53,53 +69,88 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Register observer for notification
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFrequentlyUsedEmotesDidChange), name: .frequentlyUsedEmotesDidChange, object: nil)
+        
+        // Initial sort
+        sortFrequentlyUsedEmotes()
+        
         // Setup keyboard
         setupKeyboard()
-    }
-
-    // BUTTONS -------------------------------------------------------------------------------
-    
-    // Common button action methods
-    @objc private func buttonTouchDown(sender: UIButton) {
-        sender.isHighlighted = true
-        sender.tintColor = UIColor(named: "PressedControlColor")
-        
-        // Execute the associated action
-        if let action = buttonActions[sender] {
-            action()
+        setupCollectionView()
+   
+        // Testing
+        print("DEBUG VIEWING ----------------------------")
+        for (emote, i) in frequentlyUsedEmotesArray {
+            print("\(emote) : \(i)")
         }
     }
-
-    @objc private func buttonTouchUp(sender: UIButton) {
-        sender.isHighlighted = false
-        sender.tintColor = UIColor(named: "ControlColor")
+        
+    // FREQ EMOTES -------------------------------------------------------------------------------
+    // Handle Notification Post
+    @objc func handleFrequentlyUsedEmotesDidChange() {
+        sortFrequentlyUsedEmotes()
+        collectionView.reloadData()
+        print("NOTIFICAITON RECEIVED... RELOADING!")
     }
     
-    private func keyButton(imageName: String, highlightedImageName: String, action: @escaping () -> Void, buttonSize: CGFloat) -> UIButton {
-        let button = UIButton(type: .custom)
+    func sortFrequentlyUsedEmotes() {
+        print("sortFrequentlyUsedEmotes")
+        let dictionary = UserDefaults.standard.dictionary(forKey: "frequentlyUsedEmotes") as? [String: Int] ?? [:]
         
-        button.setImage(UIImage(systemName: imageName, withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonSize, weight: .regular)), for: .normal)
-        button.setImage(UIImage(systemName: highlightedImageName, withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonSize, weight: .regular)), for: .highlighted)
-        button.tintColor = UIColor(named: "ControlColor")
+        // Sort the emotes
+        let sortedPairs = dictionary.sorted(by: { (pair1, pair2) in
+            if pair1.value != pair2.value {
+                return pair1.value > pair2.value // Sort by frequency
+            } else {
+                return pair1.key < pair2.key // alphabetically tiebreaker if equal
+            }
+        })
         
-
-        button.translatesAutoresizingMaskIntoConstraints = false
-
-        button.addTarget(self, action: #selector(buttonTouchDown(sender:)), for: .touchDown)
-        button.addTarget(self, action: #selector(buttonTouchUp(sender:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
-        buttonActions[button] = action
-
-        // Add to View
-        view.addSubview(button)
+        // Convert the sorted pairs into an array of tuples
+        frequentlyUsedEmotesArray = sortedPairs.map { ($0.key, $0.value) }
         
-        return button
+        // If the array has more than 20 emotes, remove the less frequently used ones
+        if frequentlyUsedEmotesArray.count > 20 {
+            print("removing last!")
+            frequentlyUsedEmotesArray.removeLast(frequentlyUsedEmotesArray.count - 20)
+        }
     }
     
-
+    func updateFrequentlyUsedEmotes(emote: String) {
+        print("updateFrequentlyUsedEmotes")
+        
+        // Retrieve the current frequency from UserDefaults
+        var frequentlyUsedEmotesDict = UserDefaults.standard.dictionary(forKey: "frequentlyUsedEmotes") as? [String: Int] ?? [:]
+        
+        // Increment the count for the emote
+        let count = frequentlyUsedEmotesDict[emote, default: 0] + 1
+        frequentlyUsedEmotesDict[emote] = count
+        
+        // Save the updated dictionary to UserDefaults
+        UserDefaults.standard.set(frequentlyUsedEmotesDict, forKey: "frequentlyUsedEmotes")
+        
+        // Update the array with top 20 frequently used emotes
+        sortFrequentlyUsedEmotes()
+    }
     
     // SETUP KEYBOARD -------------------------------------------------------------------------------
     
     func setupKeyboard() {
+        // Title
+        let titleLabel = UILabel()
+        titleLabel.text = "Frequency Used"
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.systemFont(ofSize: 11, weight: .bold)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+
+        // Add constraints for the label
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+        ])
+        
         setupControlButtons()
     }
     
@@ -109,22 +160,53 @@ class KeyboardViewController: UIInputViewController {
         let backButton = setupBackButton(imageSize: 21)
         let sectionButton = setupSectionButton(imageSize: 18)
         
-        // Button Constaints
+        controlStackView = UIStackView(arrangedSubviews: [switchButton, sectionButton, returnButton, backButton])
+        controlStackView.axis = .horizontal
+        controlStackView.distribution = .equalCentering
+        controlStackView.spacing = 0
+        
+        controlStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controlStackView)
+        
+        // Button Constraints
         NSLayoutConstraint.activate([
-            switchButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            switchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            
-            sectionButton.widthAnchor.constraint(equalToConstant: 310),
-            sectionButton.heightAnchor.constraint(equalToConstant: 24),
-            
-            sectionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -1),
-            sectionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            
-            returnButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -2),
-            returnButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            
-            backButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            backButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            controlStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            controlStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            controlStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+        ])
+    }
+    
+    func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 7
+        layout.minimumLineSpacing = 7
+        
+        // Padding
+        layout.sectionInset = UIEdgeInsets(top: verticalCollectionPadding, left: horizontalCollectionPadding, bottom: verticalCollectionPadding, right: horizontalCollectionPadding)
+
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.backgroundColor = .clear
+        
+        // Bounce
+        //collectionView.alwaysBounceVertical = true
+        collectionView.alwaysBounceHorizontal = true
+
+        // Clipping for the collection view
+        collectionView.clipsToBounds = false
+        
+        collectionView.register(EmoteCell.self, forCellWithReuseIdentifier: "EmoteCell")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: controlStackView.topAnchor)
         ])
     }
     
@@ -187,7 +269,7 @@ class KeyboardViewController: UIInputViewController {
 
         // Add to View
         view.addSubview(backButton)
-        
+
         return backButton
     }
     
@@ -248,15 +330,34 @@ class KeyboardViewController: UIInputViewController {
         sender.isHighlighted = false
         sender.tintColor = UIColor(named: "ControlColor")
     }
-    
-    
-    // MISC ---------------------------------------------------------------------
-    
-    override func textWillChange(_ textInput: UITextInput?) {
-        // The app is about to change the document's contents. Perform any preparation here.
+}
+
+// UICollectionView
+extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return frequentlyUsedEmotesArray.count
     }
     
-    override func textDidChange(_ textInput: UITextInput?) {
-        // The app has just changed the document's contents, the document context has been updated.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmoteCell", for: indexPath) as! EmoteCell
+        let emote = frequentlyUsedEmotesArray[indexPath.item].emote
+        cell.configure(with: emote)
+        cell.delegate = self
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Adjusting width based on content
+        let emote = frequentlyUsedEmotesArray[indexPath.item].emote
+        let width = emote.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0)]).width + cellWidthPadding
+        
+        return CGSize(width: width, height: cellHeight)
+    }
+}
+
+extension KeyboardViewController: EmoteCellDelegate {
+    func didSelectEmote(emote: String) {
+        textDocumentProxy.insertText(emote)
+        updateFrequentlyUsedEmotes(emote: emote)
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 // Emotes, within a section, Selection UICollection
 class SectionViewController: UIViewController {
     var textDocumentProxy: UITextDocumentProxy?
@@ -21,6 +22,7 @@ class SectionViewController: UIViewController {
     let verticalPadding: CGFloat = 10
     let horizontalPadding: CGFloat = 10
     let spacing: CGFloat = 7
+    let cellHeight: CGFloat = 49
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,11 +137,11 @@ class SectionViewController: UIViewController {
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-              collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
-              collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-              collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-              collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-          ])
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     func backButton() {
@@ -176,22 +178,36 @@ extension SectionViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let totalVerticalPadding: CGFloat = verticalPadding * 2
-        let totalSpacing = spacing * (numberOfRows - 1)
-        
-        let availableHeight = collectionView.bounds.height - totalVerticalPadding - totalSpacing
-        let height = availableHeight / numberOfRows
-        
         // Adjusting width based on content
         let width = emotes[indexPath.item].size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0)]).width + cellWidthPadding
         
-        return CGSize(width: width, height: height)
+        return CGSize(width: width, height: cellHeight)
     }
 }
 
 extension SectionViewController: EmoteCellDelegate {
     func didSelectEmote(emote: String) {
         textDocumentProxy?.insertText(emote)
+        addFrequentlyUsedEmotes(emote: emote)
     }
 }
+
+func addFrequentlyUsedEmotes(emote: String) {
+    print("addFrequentlyUsedEmotes")
+    var frequentlyUsedEmotesDict = UserDefaults.standard.dictionary(forKey: "frequentlyUsedEmotes") as? [String: Int] ?? [:]
+       
+    // Increment the usage count of the emote if it already exists, otherwise set it to 1
+    if let count = frequentlyUsedEmotesDict[emote] {
+        frequentlyUsedEmotesDict[emote] = count + 1
+    } else {
+        frequentlyUsedEmotesDict[emote] = 1
+    }
+       
+    // Set the updated dictionary back to UserDefaults
+    UserDefaults.standard.set(frequentlyUsedEmotesDict, forKey: "frequentlyUsedEmotes")
+    
+    // Post Notification
+    NotificationCenter.default.post(name: .frequentlyUsedEmotesDidChange, object: nil)
+}
+
 

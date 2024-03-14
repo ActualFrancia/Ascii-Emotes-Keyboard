@@ -47,4 +47,8 @@ struct AppConstants {
     
     // Animation Delay for Cells
     static let animationDelay = 0.5
+    
+    // Backspace Timer
+    static let backspaceTimerInterval = 0.1
+    static let backspaceDisptachAfter = 0.4
 }

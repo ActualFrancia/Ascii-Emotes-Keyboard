@@ -32,6 +32,9 @@ class KeyboardViewController: UIInputViewController {
     var sectionCollectionView: UICollectionView!
     var hStack: UIStackView!
     
+    var backspaceTimer: Timer?
+    var backspaceWorkItem: DispatchWorkItem?
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
     }
@@ -257,8 +260,10 @@ class KeyboardViewController: UIInputViewController {
         
         let freqButton = setupFreqButton()
         sectionCollectionView = setupSectionCollection()
+        let returnButton = setupReturnButton()
+        let backspaceButton = setupBackspaceButton()
         
-        hStack = UIStackView(arrangedSubviews: arrangedSubviews + [freqButton, sectionCollectionView])
+        hStack = UIStackView(arrangedSubviews: arrangedSubviews + [freqButton, sectionCollectionView, returnButton, backspaceButton])
         hStack.axis = .horizontal
         hStack.distribution = .fill
         hStack.alignment = .fill
@@ -295,13 +300,12 @@ class KeyboardViewController: UIInputViewController {
     // Frequently Used Button
     private func setupFreqButton() -> UIButton {
         let freqButton = UIButton(type: .custom)
+        
         freqButton.setImage(UIImage(systemName: "clock", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .normal)
         freqButton.setImage(UIImage(systemName: "clock.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .highlighted)
         freqButton.tintColor = UIColor(named: "ControlColor")
         
-        // TouchDown
         freqButton.addTarget(self, action: #selector(freqButtonTouchDown(sender:)), for: .touchDown)
-        // TouchUpInside, TouchUpOutside, TouchCancel
         freqButton.addTarget(self, action: #selector(freqButtonTouchUp(sender:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
 
         freqButton.translatesAutoresizingMaskIntoConstraints = false
@@ -318,6 +322,77 @@ class KeyboardViewController: UIInputViewController {
          sender.backgroundColor = UIColor(named: "SecondaryButtonColor")
          setupData(selectedSection: "Frequently Used")
      }
+    
+    // Return Button
+    private func setupReturnButton() -> UIButton {
+        let returnButton = UIButton(type: .custom)
+        
+        returnButton.setImage(UIImage(systemName: "return.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.returnImageSize, weight: .regular)), for: .normal)
+        returnButton.setImage(UIImage(systemName: "return.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.returnImageSize, weight: .regular)), for: .highlighted)
+        returnButton.tintColor = UIColor(named: "ControlColor")
+
+        returnButton.addTarget(self, action: #selector(returnButtonTouchDown(sender:)), for: .touchDown)
+        returnButton.addTarget(self, action: #selector(returnButtonTouchUp(sender:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+       
+        returnButton.translatesAutoresizingMaskIntoConstraints = false
+        return returnButton
+    }
+    
+    @objc private func returnButtonTouchDown(sender: UIButton) {
+        sender.isHighlighted = true
+        sender.tintColor = UIColor(named: "PressedControlColor")
+        textDocumentProxy.insertText("\n")
+    }
+
+    @objc private func returnButtonTouchUp(sender: UIButton) {
+        sender.isHighlighted = false
+        sender.tintColor = UIColor(named: "ControlColor")
+    }
+    
+    // Back Space Button
+    private func setupBackspaceButton() -> UIButton {
+        let backspaceButton = UIButton(type: .custom)
+        
+        backspaceButton.setImage(UIImage(systemName: "delete.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.backspaceImageSize, weight: .regular)), for: .normal)
+        backspaceButton.setImage(UIImage(systemName: "delete.left.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.backspaceImageSize, weight: .regular)), for: .highlighted)
+        backspaceButton.tintColor = UIColor(named: "ControlColor")
+        
+        backspaceButton.addTarget(self, action: #selector(backspaceButtonTouchDown(sender:)), for: .touchDown)
+        backspaceButton.addTarget(self, action: #selector(backspaceButtonTouchUp(sender:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+        
+        backspaceButton.translatesAutoresizingMaskIntoConstraints = false
+        return backspaceButton
+    }
+            
+    @objc private func backspaceButtonTouchDown(sender: UIButton) {
+        sender.isHighlighted = true
+        sender.tintColor = UIColor(named: "PressedControlColor")
+        
+        // Always backspace once
+        textDocumentProxy.deleteBackward()
+        
+        // Create work item
+        backspaceWorkItem = DispatchWorkItem { [weak self] in
+            self?.backspaceTimer = Timer.scheduledTimer(withTimeInterval: AppConstants.backspaceTimerInterval, repeats: true) { [weak self] _ in
+                self?.textDocumentProxy.deleteBackward()
+            }
+        }
+        
+        // Distpatch work item
+        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.backspaceDisptachAfter, execute: backspaceWorkItem!)
+    }
+
+    @objc private func backspaceButtonTouchUp(sender: UIButton) {
+        sender.isHighlighted = false
+        sender.tintColor = UIColor(named: "ControlColor")
+        
+        // Cancel work item if not yet executed
+        backspaceWorkItem?.cancel()
+        
+        // Stop the timer
+        backspaceTimer?.invalidate()
+        backspaceTimer = nil
+    }
 }
 
 

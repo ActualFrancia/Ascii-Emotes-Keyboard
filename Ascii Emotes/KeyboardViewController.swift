@@ -90,6 +90,7 @@ class KeyboardViewController: UIInputViewController {
             if selectedSection == "Frequently Used" {
                 loadFrequentlyUsedEmotes()
             } else {
+                
                 loadEmotesFromJSON()
             }
     
@@ -184,8 +185,8 @@ class KeyboardViewController: UIInputViewController {
         titleLabel = UppercaseLabel()
         titleLabel.text = sectionTitle
         
-        titleLabel.font = UIFont.systemFont(ofSize: AppConstants.titleSize, weight: .medium)
-        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: AppConstants.titleSize, weight: .semibold)
+        titleLabel.textColor = UIColor(named: "BoldTextColor")
         titleLabel.textAlignment = .left
         
         view.addSubview(titleLabel)
@@ -207,7 +208,8 @@ class KeyboardViewController: UIInputViewController {
         emoteCollectionView.delegate = self
         emoteCollectionView.dataSource = self
         
-        emoteCollectionView.backgroundColor = .blue
+        emoteCollectionView.backgroundColor = .clear
+        
         emoteCollectionView.alwaysBounceHorizontal = true
         emoteCollectionView.clipsToBounds = false
         emoteCollectionView.showsHorizontalScrollIndicator = false
@@ -220,7 +222,7 @@ class KeyboardViewController: UIInputViewController {
             emoteCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: AppConstants.emoteCollectionTopAnchorAdjustment),
             emoteCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             emoteCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            emoteCollectionView.bottomAnchor.constraint(equalTo: hStack.topAnchor)
+            emoteCollectionView.bottomAnchor.constraint(equalTo: hStack.topAnchor, constant: AppConstants.emoteCollectionBottomAnchorAdjustment)
         ])
     }
     
@@ -238,9 +240,9 @@ class KeyboardViewController: UIInputViewController {
         sectionCollectionView.alwaysBounceHorizontal = true
         sectionCollectionView.clipsToBounds = true
         sectionCollectionView.showsHorizontalScrollIndicator = false
+        sectionCollectionView.layer.cornerRadius = AppConstants.sectionCollectionCornerRadius
         
-        // Testing
-        sectionCollectionView.backgroundColor = .blue
+        sectionCollectionView.backgroundColor = UIColor(named: "ScrollColor")
         
         sectionCollectionView.register(SectionCell.self, forCellWithReuseIdentifier: "SectionCell")
         
@@ -272,10 +274,7 @@ class KeyboardViewController: UIInputViewController {
         hStack.alignment = .fill
         hStack.spacing = 0
         
-        // TESTING
-        hStack.backgroundColor = .brown
         view.addSubview(hStack)
-        
         hStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             freqButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
@@ -325,12 +324,13 @@ class KeyboardViewController: UIInputViewController {
     
     @objc private func freqButtonTouchDown(sender: UIButton) {
         sender.isHighlighted = true
-        sender.backgroundColor = UIColor(named: "PressedSecondaryButtonColor")
+        sender.tintColor = UIColor(named: "PressedControlColor")
      }
      
      @objc private func freqButtonTouchUp(sender: UIButton) {
          sender.isHighlighted = false
-         sender.backgroundColor = UIColor(named: "SecondaryButtonColor")
+         sender.tintColor = UIColor(named: "ControlColor")
+         
          setupData(selectedSection: "Frequently Used")
      }
     
@@ -413,6 +413,14 @@ class KeyboardViewController: UIInputViewController {
 // -------------------------------------------------------------------------------
 extension KeyboardViewController: SectionCellDelegate {
     func didSelectEmoteSection(sectionTitle: String) {
+        // Iterate through section cells to update their selection state
+        for (index, section) in sections.enumerated() {
+            let isSelected = section.title == sectionTitle
+            if let cell = sectionCollectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? SectionCell {
+                cell.isSelectedSection = isSelected
+            }
+        }
+        
         setupData(selectedSection: sectionTitle)
     }
 }
@@ -459,13 +467,15 @@ extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == emoteCollectionView {
-            let cellWidth: CGFloat = AppConstants.emoteCellWidth
-            let cellHeight: CGFloat = AppConstants.emoteCellHeight
-            return CGSize(width: cellWidth, height: cellHeight)
-        } 
+            return CGSize(width: AppConstants.emoteCellWidth, height: AppConstants.emoteCellHeight)
+        }
         else if collectionView == sectionCollectionView {
-            let cellWidth: CGFloat = AppConstants.sectionCellWidth
-            return CGSize(width: cellWidth, height: collectionView.bounds.height)
+            let section = sections[indexPath.item]
+            let sectionTitle = NSLocalizedString(section.title, comment: "") // Get localized section title
+            let sectionWidth = sectionTitle.size(withAttributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: AppConstants.sectionCellFontSize, weight: AppConstants.sectionCellWeight)
+            ]).width + AppConstants.sectionCellPadding
+            return CGSize(width: sectionWidth, height: collectionView.bounds.height)
         }
         return CGSize.zero
     }
@@ -478,7 +488,8 @@ class UppercaseLabel: UILabel {
             return super.text
         }
         set {
-            super.text = newValue?.uppercased()
+            //super.text = newValue?.uppercased()
+            super.text = NSLocalizedString(newValue!, comment: "").uppercased()
         }
     }
 }

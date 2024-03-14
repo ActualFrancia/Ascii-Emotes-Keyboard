@@ -10,6 +10,7 @@
 		91965AAD2BA235640097E6C9 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91965AAC2BA235640097E6C9 /* AppConstants.swift */; };
 		91965AB22BA24C2A0097E6C9 /* EmoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91965AB12BA24C2A0097E6C9 /* EmoteCell.swift */; };
 		91965AB42BA25DBF0097E6C9 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91965AB32BA25DBF0097E6C9 /* SectionCell.swift */; };
+		91965AB62BA2A2710097E6C9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 91965AB52BA2A2710097E6C9 /* Localizable.xcstrings */; };
 		91D649532B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */; };
 		91D649552B9FBBBB005B99FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D649542B9FBBBB005B99FF /* ContentView.swift */; };
 		91D6495A2B9FBBBC005B99FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D649592B9FBBBC005B99FF /* Preview Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		91965AAC2BA235640097E6C9 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		91965AB12BA24C2A0097E6C9 /* EmoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteCell.swift; sourceTree = "<group>"; };
 		91965AB32BA25DBF0097E6C9 /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		91965AB52BA2A2710097E6C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		91D6494F2B9FBBBB005B99FF /* Ascii Emotes Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ascii Emotes Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ascii_Emotes_KeyboardApp.swift; sourceTree = "<group>"; };
 		91D649542B9FBBBB005B99FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		91D649652B9FBBC8005B99FF /* Ascii Emotes */ = {
 			isa = PBXGroup;
 			children = (
+				91965AB52BA2A2710097E6C9 /* Localizable.xcstrings */,
 				91965AAC2BA235640097E6C9 /* AppConstants.swift */,
 				91D649662B9FBBC8005B99FF /* KeyboardViewController.swift */,
 				91965AB12BA24C2A0097E6C9 /* EmoteCell.swift */,
@@ -214,6 +217,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 91D649462B9FBBBB005B99FF;
 			productRefGroup = 91D649502B9FBBBB005B99FF /* Products */;
@@ -242,6 +246,7 @@
 			files = (
 				91D649812BA00DD7005B99FF /* Happy.json in Resources */,
 				91D6497D2BA00DD7005B99FF /* Cat.json in Resources */,
+				91965AB62BA2A2710097E6C9 /* Localizable.xcstrings in Resources */,
 				91D649702B9FD557005B99FF /* Assets.xcassets in Resources */,
 				91D6497E2BA00DD7005B99FF /* Love.json in Resources */,
 				91D6497F2BA00DD7005B99FF /* Angry.json in Resources */,

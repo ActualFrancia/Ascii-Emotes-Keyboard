@@ -29,13 +29,20 @@ class EmoteCell: UICollectionViewCell {
     }
     
     private func setupView() {
+        backgroundColor = UIColor(named: "PrimaryButtonColor")
+        layer.cornerRadius = AppConstants.emoteCellCornerRadius
+        
+        // Drop Shadow
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 0
+        
         emoteLabel = UILabel()
         emoteLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         emoteLabel.textColor = UIColor(named: "TextColor")
         emoteLabel.textAlignment = .center
-        
-        backgroundColor = .green
-        emoteLabel.layer.cornerRadius = 10
         
         addSubview(emoteLabel)
         emoteLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -51,8 +58,7 @@ class EmoteCell: UICollectionViewCell {
         super.touchesBegan(touches, with: event)
         
         // Show Box
-    
-        // Style on Touch
+        self.backgroundColor = UIColor(named: "PressedPrimaryButtonColor")
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -62,7 +68,7 @@ class EmoteCell: UICollectionViewCell {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
             // Close Box
-            // End Touch
+            self.backgroundColor = UIColor(named: "PrimaryButtonColor")
         }
     }
     
@@ -71,6 +77,7 @@ class EmoteCell: UICollectionViewCell {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
             // Close Box
+            self.backgroundColor = UIColor(named: "PrimaryButtonColor")
         }
     }
 }

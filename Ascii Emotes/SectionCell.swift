@@ -14,6 +14,13 @@ protocol SectionCellDelegate: AnyObject {
 class SectionCell: UICollectionViewCell {
     weak var delegate: SectionCellDelegate?
     var sectionLabel: UILabel!
+    var sectionKey: String?
+    
+    var isSelectedSection: Bool = false {
+        didSet {
+            updateBackgroundColor()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,18 +32,18 @@ class SectionCell: UICollectionViewCell {
     }
     
     func configure(with section: String) {
-        sectionLabel.text = section
+        sectionKey = section
+        sectionLabel.text = NSLocalizedString(section, comment: "")
     }
     
     private func setupView() {
+        layer.cornerRadius = AppConstants.sectionCellCornerRadius
+        
         sectionLabel = UILabel()
-        sectionLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        sectionLabel.font = UIFont.systemFont(ofSize: AppConstants.sectionCellFontSize, weight: AppConstants.sectionCellWeight)
         sectionLabel.textColor = UIColor(named: "TextColor")
         sectionLabel.textAlignment = .center
-        
-        backgroundColor = .cyan
-        sectionLabel.layer.cornerRadius = 10
-        
+            
         addSubview(sectionLabel)
         sectionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -49,7 +56,7 @@ class SectionCell: UICollectionViewCell {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        backgroundColor = UIColor(named: "PressedPrimaryButtonColor")
+        // Blank
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -57,22 +64,18 @@ class SectionCell: UICollectionViewCell {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
             // Open Section
-            if let sectionTitle = self.sectionLabel.text {
-                self.delegate?.didSelectEmoteSection(sectionTitle: sectionTitle)
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
-                // Revert back to the original background color when released
-                self.backgroundColor = UIColor(named: "PrimaryButtonColor")
+            if let sectionKey = self.sectionKey {
+                self.delegate?.didSelectEmoteSection(sectionTitle: sectionKey)
             }
         }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        // Revert back to the original background color when canceled
-        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
-            self.backgroundColor = UIColor(named: "PrimaryButtonColor")
-        }
+        // Blank
+    }
+    
+    func updateBackgroundColor() {
+        backgroundColor = isSelected ? UIColor(named: "SelectedSectionCell") : .clear
     }
 }

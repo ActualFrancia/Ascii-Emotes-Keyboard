@@ -10,13 +10,41 @@ import UIKit
 struct AppConstants {
     // Emote Sections
     static let sections: [(title: String, symbol: String)] = [
-        ("Happy", "(＾▽＾)"),
-        ("Sad", "｡：ﾟ(｡ﾉω＼｡)ﾟ･｡"),
-        ("Love", "(｡♥‿♥｡)"),
-        ("Angry", "(`皿´)"),
-        ("Bear", "ʕ·ᴥ·ʔ"),
-        ("Cat", "（＾・ω・＾）")
+        ("Happy", "😊"),
+        ("Sad", "😢"),
+        ("Love", "❤️"),
+        ("Angry", "😡"),
+        ("Bear", "🐻"),
+        ("Cat", "🐱")
     ]
-    // TESTING OVERRIDE
-    //static let sections = (1...26).map { "section\($0)" }
+    
+    // Keyboard Height
+    static let keyboardHeight: CGFloat = 250
+    static let controlBarHeight: CGFloat = 40
+    
+    // Title Label
+    static let titleLabelSize: CGFloat = 10
+    
+    // EmoteCollectionView
+    static let emoteCollectionTopAnchorAdjustment: CGFloat = 18
+    
+    static let emoteCollectionVertialPadding: CGFloat = 0
+    static let emoteCollectionHorizontalPadding: CGFloat = 5
+    static let emoteCollectionInternalSpacing: CGFloat = 5
+    
+    // Control Buttons
+    static let switchImageSize: CGFloat = 19
+    static let returnImageSize: CGFloat = 17
+    static let backspaceImageSize: CGFloat = 21
+    static let freqImageSize: CGFloat = 19
+    
+    // EmoteCell
+    static let emoteCellWidth: CGFloat = 100
+    static let emoteCellHeight: CGFloat = 30
+    
+    // SectionCell
+    static let sectionCellWidth: CGFloat = 100
+    
+    // Animation Delay for Cells
+    static let animationDelay = 0.5
 }

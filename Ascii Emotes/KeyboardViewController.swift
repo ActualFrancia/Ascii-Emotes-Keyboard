@@ -12,9 +12,11 @@ import UIKit
 class KeyboardViewController: UIInputViewController {
     
     // Testing Switch Override
+    /*
     override var needsInputModeSwitchKey: Bool {
         get { return true } // Override the value for testing
     }
+     */
     
     let sections = AppConstants.sections
     
@@ -31,6 +33,13 @@ class KeyboardViewController: UIInputViewController {
     var emoteCollectionView: UICollectionView!
     var sectionCollectionView: UICollectionView!
     var hStack: UIStackView!
+    
+    var freqButton: UIButton!
+    var isFreqSelected: Bool = true {
+        didSet {
+            updateFreqBackgroundColor()
+        }
+    }
     
     var backspaceTimer: Timer?
     var backspaceWorkItem: DispatchWorkItem?
@@ -88,9 +97,10 @@ class KeyboardViewController: UIInputViewController {
             self.sectionTitle = selectedSection
             
             if selectedSection == "Frequently Used" {
+                isFreqSelected = true
                 loadFrequentlyUsedEmotes()
             } else {
-                
+                isFreqSelected = false
                 loadEmotesFromJSON()
             }
     
@@ -227,10 +237,13 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func setupSectionCollection() -> UICollectionView {
-        let layout = UICollectionViewFlowLayout()
+        let layout = DividedCollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        
+        // TESTING ------------------------------------------------------------------------------------------
         layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
+        layout.minimumInteritemSpacing = AppConstants.sectionCollectionInterSpacing
+        
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // Padding
         
         sectionCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -240,12 +253,12 @@ class KeyboardViewController: UIInputViewController {
         sectionCollectionView.alwaysBounceHorizontal = true
         sectionCollectionView.clipsToBounds = true
         sectionCollectionView.showsHorizontalScrollIndicator = false
-        sectionCollectionView.layer.cornerRadius = AppConstants.sectionCollectionCornerRadius
+        sectionCollectionView.layer.cornerRadius = (AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)) / 2
         
         sectionCollectionView.backgroundColor = UIColor(named: "ScrollColor")
         
         sectionCollectionView.register(SectionCell.self, forCellWithReuseIdentifier: "SectionCell")
-        
+
         sectionCollectionView.translatesAutoresizingMaskIntoConstraints = false
         return sectionCollectionView
     }
@@ -259,7 +272,7 @@ class KeyboardViewController: UIInputViewController {
             arrangedSubviews.append(switchButton)
             
             NSLayoutConstraint.activate([
-                switchButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
+                switchButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
             ])
         }
         
@@ -271,21 +284,26 @@ class KeyboardViewController: UIInputViewController {
         hStack = UIStackView(arrangedSubviews: arrangedSubviews + [freqButton, sectionCollectionView, returnButton, backspaceButton])
         hStack.axis = .horizontal
         hStack.distribution = .fill
-        hStack.alignment = .fill
-        hStack.spacing = 0
-        
+        hStack.alignment = .center
+        hStack.spacing = AppConstants.hStackPadding
+                
         view.addSubview(hStack)
         hStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            freqButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
-            returnButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
-            backspaceButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
-
+            freqButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
+            freqButton.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
             
-            hStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            returnButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
+            backspaceButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
+
+            // section collection padding
+            sectionCollectionView.topAnchor.constraint(equalTo: hStack.topAnchor, constant: AppConstants.sectionCollectionVerticalPadding),
+            sectionCollectionView.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: -AppConstants.sectionCollectionVerticalPadding),
+            
+            hStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.hStackHortizonalPadding),
+            hStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppConstants.hStackHortizonalPadding),
             hStack.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            hStack.heightAnchor.constraint(equalToConstant: AppConstants.controlBarHeight),
+            hStack.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
         ])
     }
     
@@ -308,18 +326,29 @@ class KeyboardViewController: UIInputViewController {
     
     // Frequently Used Button
     private func setupFreqButton() -> UIButton {
-        let freqButton = UIButton(type: .custom)
+        freqButton = UIButton(type: .custom)
         freqButton.imageView?.contentMode = .center
+        
+        freqButton.backgroundColor = UIColor(named: "SelectedSectionCell")
+        
+        freqButton.layer.cornerRadius = (AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)) / 2
 
         freqButton.setImage(UIImage(systemName: "clock", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .normal)
         freqButton.setImage(UIImage(systemName: "clock.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .highlighted)
-        freqButton.tintColor = UIColor(named: "ControlColor")
+        freqButton.tintColor = UIColor(named: "PressedControlColor")
         
         freqButton.addTarget(self, action: #selector(freqButtonTouchDown(sender:)), for: .touchDown)
         freqButton.addTarget(self, action: #selector(freqButtonTouchUp(sender:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
 
         freqButton.translatesAutoresizingMaskIntoConstraints = false
+        
         return freqButton
+    }
+    
+    private func updateFreqBackgroundColor() {
+        freqButton?.backgroundColor = isFreqSelected ? UIColor(named: "SelectedSectionCell") : .clear
+        freqButton?.tintColor = isFreqSelected ? UIColor(named: "PressedControlColor") : UIColor(named: "ControlColor")
+
     }
     
     @objc private func freqButtonTouchDown(sender: UIButton) {
@@ -332,7 +361,13 @@ class KeyboardViewController: UIInputViewController {
          sender.tintColor = UIColor(named: "ControlColor")
          
          setupData(selectedSection: "Frequently Used")
-     }
+         
+         for (index, _) in sections.enumerated() {
+              if let cell = sectionCollectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? SectionCell {
+                  cell.isUnFocuedSelectedSection = true
+              }
+          }
+    }
     
     // Return Button
     private func setupReturnButton() -> UIButton {
@@ -488,8 +523,54 @@ class UppercaseLabel: UILabel {
             return super.text
         }
         set {
-            //super.text = newValue?.uppercased()
             super.text = NSLocalizedString(newValue!, comment: "").uppercased()
         }
+    }
+}
+
+// CUSTOM DIVIDED UICOLLECTIONVIEW
+class DividedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+    private let dividerWidth = AppConstants.dividerWidth
+    private let dividerHeight = AppConstants.dividerHeight
+    
+    override func prepare() {
+        super.prepare()
+        register(DividerView.self, forDecorationViewOfKind: "Divider")
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let superAttributes = super.layoutAttributesForElements(in: rect) else { return nil }
+        
+        var updatedAttributes = superAttributes
+        
+        // Iterate through each attribute to add dividers
+        for (_, attributes) in superAttributes.enumerated() {
+            let indexPath = attributes.indexPath
+            
+            // Check if it's not the first item in a section
+            if indexPath.item > 0 {
+                // Add divider before
+                let dividerAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: "Divider", with: indexPath)
+                let previousIndexPath = IndexPath(item: indexPath.item - 1, section: indexPath.section)
+                
+                if let previousAttributes = self.layoutAttributesForItem(at: previousIndexPath) {
+                    // Calculate position
+                    let dividerX = previousAttributes.frame.maxX + (attributes.frame.minX - previousAttributes.frame.maxX - dividerWidth) / 2
+                    let dividerY = attributes.frame.minY + (attributes.frame.height - dividerHeight) / 2
+                    dividerAttributes.frame = CGRect(x: dividerX, y: dividerY, width: dividerWidth, height: dividerHeight)
+                    
+                    updatedAttributes.append(dividerAttributes)
+                }
+            }
+        }
+        return updatedAttributes
+    }
+    
+    override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        // Return layout attributes for divider
+        if elementKind == "Divider" {
+            return UICollectionViewLayoutAttributes(forDecorationViewOfKind: elementKind, with: indexPath)
+        }
+        return super.layoutAttributesForDecorationView(ofKind: elementKind, at: indexPath)
     }
 }

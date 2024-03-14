@@ -19,31 +19,37 @@ struct AppConstants {
     ]
     
     // Keyboard Height
-    static let keyboardHeight: CGFloat = 250
-    static let controlBarHeight: CGFloat = 40
+    static let keyboardHeight: CGFloat = 275
     
     // Title Label
-    static let titleSize: CGFloat = 13
-    static let titleTopPadding: CGFloat = 5
+    static let titleSize: CGFloat = 11.25
+    static let titleTopPadding: CGFloat = 10
     
     // EmoteCollectionView
-    static let emoteCollectionTopAnchorAdjustment: CGFloat = 25
-    static let emoteCollectionBottomAnchorAdjustment: CGFloat = -8
+    static let emoteCollectionTopAnchorAdjustment: CGFloat = 30
+    static let emoteCollectionBottomAnchorAdjustment: CGFloat = -10
     
     static let emoteCollectionVertialPadding: CGFloat = 0
-    static let emoteCollectionHorizontalPadding: CGFloat = 5
-    static let emoteCollectionInternalSpacing: CGFloat = 5
+    static let emoteCollectionHorizontalPadding: CGFloat = 10
+    static let emoteCollectionInternalSpacing: CGFloat = 10
     
     // SectionCollectionView
-    static let sectionCollectionCornerRadius: CGFloat = 15
+    static let sectionCollectionVerticalPadding: CGFloat = 5
+    static let sectionCollectionInterSpacing: CGFloat = 10
     
-    // Control Buttons
-    static let controlButtonFrame: CGFloat = 35
+    static let dividerWidth:CGFloat = 1
+    static let dividerHeight:CGFloat = 15
     
+    // Control Buttons    
     static let switchImageSize: CGFloat = 18
     static let returnImageSize: CGFloat = 17.5
     static let backspaceImageSize: CGFloat = 21
-    static let freqImageSize: CGFloat = 20
+    static let freqImageSize: CGFloat = 21
+    
+    // HStack
+    static let hStackHeight: CGFloat = 40
+    static let hStackHortizonalPadding: CGFloat = 5
+    static let hStackPadding: CGFloat = 5
     
     // EmoteCell
     static let emoteCellWidth: CGFloat = 100
@@ -51,10 +57,10 @@ struct AppConstants {
     static let emoteCellCornerRadius: CGFloat = 5
     
     // SectionCell
-    static let sectionCellCornerRadius: CGFloat = 15
     static let sectionCellPadding: CGFloat = 25
     static let sectionCellFontSize: CGFloat = 16
     static let sectionCellWeight:UIFont.Weight = .regular
+    static let unfocusedSelectedCell = 0.3
     
     // Animation Delay for Cells
     static let animationDelay = 0.01

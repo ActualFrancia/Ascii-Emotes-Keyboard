@@ -21,6 +21,12 @@ class SectionCell: UICollectionViewCell {
             updateBackgroundColor()
         }
     }
+    
+    var isUnFocuedSelectedSection: Bool = false {
+        didSet {
+            updateOpacityBackgroundColor()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +43,8 @@ class SectionCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        layer.cornerRadius = AppConstants.sectionCellCornerRadius
+        layer.cornerRadius = (AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)) / 2
+
         
         sectionLabel = UILabel()
         sectionLabel.font = UIFont.systemFont(ofSize: AppConstants.sectionCellFontSize, weight: AppConstants.sectionCellWeight)
@@ -77,5 +84,21 @@ class SectionCell: UICollectionViewCell {
     
     func updateBackgroundColor() {
         backgroundColor = isSelected ? UIColor(named: "SelectedSectionCell") : .clear
+    }
+    
+    func updateOpacityBackgroundColor() {
+        backgroundColor = isSelected ? UIColor(named: "SelectedSectionCell")?.withAlphaComponent(AppConstants.unfocusedSelectedCell) : .clear
+    }
+}
+
+// DIVIDER VIEW
+class DividerView: UICollectionReusableView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = UIColor(named: "SelectedSectionCell")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

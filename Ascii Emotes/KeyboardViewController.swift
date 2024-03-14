@@ -181,19 +181,18 @@ class KeyboardViewController: UIInputViewController {
     
     func setupLabel() {
         print("\(sectionTitle)")
-        titleLabel = UILabel()
+        titleLabel = UppercaseLabel()
         titleLabel.text = sectionTitle
         
-        titleLabel.font = UIFont.systemFont(ofSize: AppConstants.titleLabelSize, weight: .bold)
+        titleLabel.font = UIFont.systemFont(ofSize: AppConstants.titleSize, weight: .medium)
         titleLabel.textColor = .white
-        titleLabel.textAlignment = .center
+        titleLabel.textAlignment = .left
         
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: AppConstants.titleTopPadding),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.emoteCollectionHorizontalPadding),
         ])
     }
     
@@ -256,6 +255,10 @@ class KeyboardViewController: UIInputViewController {
         if needsInputModeSwitchKey {
             let switchButton = setupSwitchButton()
             arrangedSubviews.append(switchButton)
+            
+            NSLayoutConstraint.activate([
+                switchButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
+            ])
         }
         
         let freqButton = setupFreqButton()
@@ -275,6 +278,11 @@ class KeyboardViewController: UIInputViewController {
         
         hStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            freqButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
+            returnButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
+            backspaceButton.widthAnchor.constraint(equalToConstant: AppConstants.controlButtonFrame),
+
+            
             hStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             hStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             hStack.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -287,6 +295,8 @@ class KeyboardViewController: UIInputViewController {
     // Switch Keyboard Button
     private func setupSwitchButton() -> UIButton {
         let switchButton = UIButton(type: .system)
+        switchButton.imageView?.contentMode = .center
+        
         switchButton.setImage(UIImage(systemName: "globe", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.switchImageSize, weight: .regular)), for: .normal)
         switchButton.tintColor = UIColor(named: "ControlColor")
         
@@ -300,7 +310,8 @@ class KeyboardViewController: UIInputViewController {
     // Frequently Used Button
     private func setupFreqButton() -> UIButton {
         let freqButton = UIButton(type: .custom)
-        
+        freqButton.imageView?.contentMode = .center
+
         freqButton.setImage(UIImage(systemName: "clock", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .normal)
         freqButton.setImage(UIImage(systemName: "clock.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .highlighted)
         freqButton.tintColor = UIColor(named: "ControlColor")
@@ -326,7 +337,8 @@ class KeyboardViewController: UIInputViewController {
     // Return Button
     private func setupReturnButton() -> UIButton {
         let returnButton = UIButton(type: .custom)
-        
+        returnButton.imageView?.contentMode = .center
+
         returnButton.setImage(UIImage(systemName: "return.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.returnImageSize, weight: .regular)), for: .normal)
         returnButton.setImage(UIImage(systemName: "return.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.returnImageSize, weight: .regular)), for: .highlighted)
         returnButton.tintColor = UIColor(named: "ControlColor")
@@ -352,7 +364,8 @@ class KeyboardViewController: UIInputViewController {
     // Back Space Button
     private func setupBackspaceButton() -> UIButton {
         let backspaceButton = UIButton(type: .custom)
-        
+        backspaceButton.imageView?.contentMode = .center
+
         backspaceButton.setImage(UIImage(systemName: "delete.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.backspaceImageSize, weight: .regular)), for: .normal)
         backspaceButton.setImage(UIImage(systemName: "delete.left.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.backspaceImageSize, weight: .regular)), for: .highlighted)
         backspaceButton.tintColor = UIColor(named: "ControlColor")
@@ -455,5 +468,17 @@ extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDe
             return CGSize(width: cellWidth, height: collectionView.bounds.height)
         }
         return CGSize.zero
+    }
+}
+
+// CUSTOM UILABEL
+class UppercaseLabel: UILabel {
+    override var text: String? {
+        get {
+            return super.text
+        }
+        set {
+            super.text = newValue?.uppercased()
+        }
     }
 }

@@ -23,7 +23,8 @@ struct AppConstants {
     static let controlBarHeight: CGFloat = 40
     
     // Title Label
-    static let titleLabelSize: CGFloat = 10
+    static let titleSize: CGFloat = 12
+    static let titleTopPadding: CGFloat = 3
     
     // EmoteCollectionView
     static let emoteCollectionTopAnchorAdjustment: CGFloat = 18
@@ -33,8 +34,10 @@ struct AppConstants {
     static let emoteCollectionInternalSpacing: CGFloat = 5
     
     // Control Buttons
-    static let switchImageSize: CGFloat = 19
-    static let returnImageSize: CGFloat = 17
+    static let controlButtonFrame: CGFloat = 35
+    
+    static let switchImageSize: CGFloat = 18
+    static let returnImageSize: CGFloat = 18
     static let backspaceImageSize: CGFloat = 21
     static let freqImageSize: CGFloat = 19
     

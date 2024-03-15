@@ -8,8 +8,6 @@
 import UIKit
 
 /* TODO LIST
-   - Tapic Feedback
-   - Press instant animation
    - Localize
    - Transparent Color Matching
    - Section Symbols?
@@ -27,14 +25,14 @@ struct AppConstants {
     ]
     
     // Keyboard Height
-    static let keyboardHeight: CGFloat = 275
+    static let keyboardHeight: CGFloat = 275 + hStackAdditionalBottomSpacing
     
     // Title Label
     static let titleSize: CGFloat = 12
-    static let titleTopPadding: CGFloat = 9
+    static let titleTopPadding: CGFloat = 7
     
     // EmoteCollectionView
-    static let emoteCollectionTopAnchorAdjustment: CGFloat = 30
+    static let emoteCollectionTopAnchorAdjustment: CGFloat = 29
     static let emoteCollectionBottomAnchorAdjustment: CGFloat = -10
     
     static let emoteCollectionVertialPadding: CGFloat = 0
@@ -42,10 +40,10 @@ struct AppConstants {
     static let emoteCollectionInternalSpacing: CGFloat = 9.5
     
     // SectionCollectionView
-    static let sectionCollectionVerticalPadding: CGFloat = 3 // Adjust height of SectionCollectionView
+    static let sectionCollectionVerticalPadding: CGFloat = 4 // Adjust height of SectionCollectionView
     static let sectionCollectionInterSpacing: CGFloat = 10
     
-    static let dividerWidth:CGFloat = 0.75
+    static let dividerWidth:CGFloat = 0.5
     static let dividerHeight:CGFloat = 18
     static let dividerOpacity = 0.8
     
@@ -59,6 +57,7 @@ struct AppConstants {
     static let hStackHeight: CGFloat = 40
     static let hStackHortizonalPadding: CGFloat = 5
     static let hStackSpacing: CGFloat = 5
+    static let hStackAdditionalBottomSpacing: CGFloat = 0 // BOTTOM ADDED SPACING
     
     // EmoteCell
     static let emoteCellFontSize: CGFloat = 13

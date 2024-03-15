@@ -307,7 +307,7 @@ class KeyboardViewController: UIInputViewController {
             
             hStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.hStackHortizonalPadding),
             hStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppConstants.hStackHortizonalPadding),
-            hStack.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            hStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -AppConstants.hStackAdditionalBottomSpacing),
             hStack.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
         ])
     }
@@ -334,7 +334,7 @@ class KeyboardViewController: UIInputViewController {
         freqButton = UIButton(type: .custom)
         freqButton.imageView?.contentMode = .center
         
-        freqButton.backgroundColor = UIColor(named: "SelectedSectionCell")
+        freqButton.backgroundColor = UIColor(named: "SelectedFreqCell")
         
         freqButton.layer.cornerRadius = (AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)) / 2
 
@@ -351,7 +351,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     private func updateFreqBackgroundColor() {
-        freqButton?.backgroundColor = isFreqSelected ? UIColor(named: "SelectedSectionCell") : .clear
+        freqButton?.backgroundColor = isFreqSelected ? UIColor(named: "SelectedFreqCell") : .clear
         freqButton?.tintColor = isFreqSelected ? UIColor(named: "PressedControlColor") : UIColor(named: "ControlColor")
 
     }

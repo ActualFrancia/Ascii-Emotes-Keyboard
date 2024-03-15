@@ -78,9 +78,10 @@ class EmoteCell: UICollectionViewCell {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay + 0.1) {
+            self.transform = .identity
+            self.emoteLabel.font = UIFont.systemFont(ofSize: AppConstants.emoteCellFontSize, weight: .regular)
             self.backgroundColor = UIColor(named: "PrimaryButtonColor")
-            // Close Box
         }
     }
 }

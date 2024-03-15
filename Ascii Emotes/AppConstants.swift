@@ -16,7 +16,7 @@ import UIKit
 struct AppConstants {
     // Emote Sections
     static let sections: [(title: String, symbol: String)] = [
-        ("Joy", ""),
+        ("Happy", ""),
         ("Love", ""),
         ("Embarrassed", ""),
         ("Dissatisfied", ""),

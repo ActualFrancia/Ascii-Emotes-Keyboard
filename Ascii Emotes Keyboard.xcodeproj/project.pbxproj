@@ -25,7 +25,7 @@
 		91723FD02BA506810023DEDE /* Dog.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FCF2BA506810023DEDE /* Dog.json */; };
 		91723FD22BA506AA0023DEDE /* Bunny.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FD12BA506AA0023DEDE /* Bunny.json */; };
 		91723FD42BA506BE0023DEDE /* Lenny.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FD32BA506BE0023DEDE /* Lenny.json */; };
-		91723FE72BA509D10023DEDE /* Joy.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FAF2BA503C60023DEDE /* Joy.json */; };
+		91723FE72BA509D10023DEDE /* Happy.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FAF2BA503C60023DEDE /* Happy.json */; };
 		91723FE92BA50BDB0023DEDE /* Bear.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FE82BA50BDB0023DEDE /* Bear.json */; };
 		91965AAD2BA235640097E6C9 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91965AAC2BA235640097E6C9 /* AppConstants.swift */; };
 		91965AB22BA24C2A0097E6C9 /* EmoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91965AB12BA24C2A0097E6C9 /* EmoteCell.swift */; };
@@ -67,7 +67,7 @@
 /* Begin PBXFileReference section */
 		91723FA92BA4BC350023DEDE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		91723FAC2BA4DB920023DEDE /* Ascii-Emotes-Keyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Ascii-Emotes-Keyboard-Info.plist"; sourceTree = SOURCE_ROOT; };
-		91723FAF2BA503C60023DEDE /* Joy.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Joy.json; sourceTree = "<group>"; };
+		91723FAF2BA503C60023DEDE /* Happy.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Happy.json; sourceTree = "<group>"; };
 		91723FB12BA503EA0023DEDE /* Love.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Love.json; sourceTree = "<group>"; };
 		91723FB32BA504200023DEDE /* Embarrassed.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Embarrassed.json; sourceTree = "<group>"; };
 		91723FB52BA504690023DEDE /* Dissatisfied.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Dissatisfied.json; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		91D649762BA00DAA005B99FF /* EmoteData */ = {
 			isa = PBXGroup;
 			children = (
-				91723FAF2BA503C60023DEDE /* Joy.json */,
+				91723FAF2BA503C60023DEDE /* Happy.json */,
 				91723FB12BA503EA0023DEDE /* Love.json */,
 				91723FB32BA504200023DEDE /* Embarrassed.json */,
 				91723FB52BA504690023DEDE /* Dissatisfied.json */,
@@ -294,7 +294,7 @@
 				91723FB82BA504DF0023DEDE /* Angry.json in Resources */,
 				91723FBE2BA505870023DEDE /* Fear.json in Resources */,
 				91723FCE2BA506470023DEDE /* Cat.json in Resources */,
-				91723FE72BA509D10023DEDE /* Joy.json in Resources */,
+				91723FE72BA509D10023DEDE /* Happy.json in Resources */,
 				91723FC52BA505F80023DEDE /* Greeting.json in Resources */,
 				91D649702B9FD557005B99FF /* Assets.xcassets in Resources */,
 				91723FB22BA503EA0023DEDE /* Love.json in Resources */,

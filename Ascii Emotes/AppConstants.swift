@@ -55,7 +55,6 @@ struct AppConstants {
     
     // HStack
     static let hStackHeight: CGFloat = 40
-    static let hStackHortizonalPadding: CGFloat = 5
     static let hStackSpacing: CGFloat = 5
     static let hStackAdditionalBottomSpacing: CGFloat = 0 // BOTTOM ADDED SPACING
     
@@ -69,7 +68,7 @@ struct AppConstants {
     static let sectionCellPadding: CGFloat = 25
     static let sectionCellFontSize: CGFloat = 16
     static let sectionCellWeight:UIFont.Weight = .regular
-    static let unfocusedSelectedCell = 0.15
+    static let unfocusedSelectedCellOpacity = 0.0
     
     // Animation Delay for Cells
     static let animationDelay = 0.01

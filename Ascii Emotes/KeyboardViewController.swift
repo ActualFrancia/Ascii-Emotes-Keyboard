@@ -277,7 +277,8 @@ class KeyboardViewController: UIInputViewController {
             arrangedSubviews.append(switchButton)
             
             NSLayoutConstraint.activate([
-                switchButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
+                //switchButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
+                switchButton.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
             ])
         }
         
@@ -298,15 +299,18 @@ class KeyboardViewController: UIInputViewController {
             freqButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
             freqButton.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
             
-            returnButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
-            backspaceButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
+            //returnButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
+            returnButton.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
+            
+            //backspaceButton.widthAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
+            backspaceButton.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)),
 
             // section collection padding
             sectionCollectionView.topAnchor.constraint(equalTo: hStack.topAnchor, constant: AppConstants.sectionCollectionVerticalPadding),
             sectionCollectionView.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: -AppConstants.sectionCollectionVerticalPadding),
             
-            hStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.hStackHortizonalPadding),
-            hStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppConstants.hStackHortizonalPadding),
+            hStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppConstants.emoteCollectionHorizontalPadding),
+            hStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppConstants.emoteCollectionHorizontalPadding),
             hStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -AppConstants.hStackAdditionalBottomSpacing),
             hStack.heightAnchor.constraint(equalToConstant: AppConstants.hStackHeight),
         ])
@@ -335,9 +339,8 @@ class KeyboardViewController: UIInputViewController {
         freqButton.imageView?.contentMode = .center
         
         freqButton.backgroundColor = UIColor(named: "SelectedFreqCell")
-        
         freqButton.layer.cornerRadius = (AppConstants.hStackHeight - (2 * AppConstants.sectionCollectionVerticalPadding)) / 2
-
+        
         freqButton.setImage(UIImage(systemName: "clock", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .normal)
         freqButton.setImage(UIImage(systemName: "clock.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .highlighted)
         freqButton.tintColor = UIColor(named: "PressedFreqColor")
@@ -351,7 +354,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     private func updateFreqBackgroundColor() {
-        freqButton?.backgroundColor = isFreqSelected ? UIColor(named: "SelectedFreqCell") : .clear
+        freqButton?.backgroundColor = isFreqSelected ? UIColor(named: "SelectedFreqCell") : UIColor(named: "ScrollColor")
         freqButton?.tintColor = isFreqSelected ? UIColor(named: "PressedControlColor") : UIColor(named: "ControlColor")
 
     }
@@ -416,7 +419,7 @@ class KeyboardViewController: UIInputViewController {
     private func setupBackspaceButton() -> UIButton {
         let backspaceButton = UIButton(type: .custom)
         backspaceButton.imageView?.contentMode = .center
-
+        
         backspaceButton.setImage(UIImage(systemName: "delete.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.backspaceImageSize, weight: .regular)), for: .normal)
         backspaceButton.setImage(UIImage(systemName: "delete.left.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.backspaceImageSize, weight: .regular)), for: .highlighted)
         backspaceButton.tintColor = UIColor(named: "ControlColor")

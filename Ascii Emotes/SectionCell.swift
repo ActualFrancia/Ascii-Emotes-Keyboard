@@ -87,7 +87,7 @@ class SectionCell: UICollectionViewCell {
     }
     
     func updateOpacityBackgroundColor() {
-        backgroundColor = isSelected ? UIColor(named: "SelectedSectionCell")?.withAlphaComponent(AppConstants.unfocusedSelectedCell) : .clear
+        backgroundColor = isSelected ? UIColor(named: "SelectedSectionCell")?.withAlphaComponent(AppConstants.unfocusedSelectedCellOpacity) : .clear
     }
 }
 

@@ -18,7 +18,7 @@ struct AppConstants {
     static let sections: [(title: String, symbol: String)] = [
         ("Joy", ""),
         ("Love", ""),
-        ("Embarrassment", ""),
+        ("Embarrassed", ""),
         ("Dissatisfied", ""),
         ("Angry", ""),
         ("Sad", ""),
@@ -33,7 +33,7 @@ struct AppConstants {
         ("Cat", ""),
         ("Bear", ""),
         ("Dog", ""),
-        ("Rabbit", ""),
+        ("Bunny", ""),
         ("Lenny", "")
     ]
     

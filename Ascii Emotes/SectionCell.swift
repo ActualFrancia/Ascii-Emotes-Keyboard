@@ -95,7 +95,7 @@ class SectionCell: UICollectionViewCell {
 class DividerView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(named: "SelectedSectionCell")
+        backgroundColor = UIColor(named: "SelectedSectionCell")?.withAlphaComponent(AppConstants.dividerOpacity)
     }
     
     required init?(coder: NSCoder) {

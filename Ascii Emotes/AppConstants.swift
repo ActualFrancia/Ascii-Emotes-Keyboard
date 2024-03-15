@@ -30,7 +30,7 @@ struct AppConstants {
     static let keyboardHeight: CGFloat = 275
     
     // Title Label
-    static let titleSize: CGFloat = 11.5
+    static let titleSize: CGFloat = 12
     static let titleTopPadding: CGFloat = 9
     
     // EmoteCollectionView
@@ -42,11 +42,12 @@ struct AppConstants {
     static let emoteCollectionInternalSpacing: CGFloat = 10
     
     // SectionCollectionView
-    static let sectionCollectionVerticalPadding: CGFloat = 5
+    static let sectionCollectionVerticalPadding: CGFloat = 3 // Adjust height of SectionCollectionView
     static let sectionCollectionInterSpacing: CGFloat = 10
     
-    static let dividerWidth:CGFloat = 1
-    static let dividerHeight:CGFloat = 15
+    static let dividerWidth:CGFloat = 0.75
+    static let dividerHeight:CGFloat = 18
+    static let dividerOpacity = 0.8
     
     // Control Buttons    
     static let switchImageSize: CGFloat = 18

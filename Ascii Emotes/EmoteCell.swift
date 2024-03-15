@@ -37,7 +37,7 @@ class EmoteCell: UICollectionViewCell {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.3
-        layer.shadowOffset = CGSize(width: 0, height: 1.25)
+        layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowRadius = 0
         
         emoteLabel = UILabel()

@@ -53,12 +53,12 @@ struct AppConstants {
     static let emoteCollectionInternalSpacing: CGFloat = 9.5
     
     // SectionCollectionView
-    static let sectionCollectionVerticalPadding: CGFloat = 4 // Adjust height of SectionCollectionView
+    static let sectionCollectionVerticalPadding: CGFloat = 1 // Adjust height of SectionCollectionView = 0
     static let sectionCollectionInterSpacing: CGFloat = 10
     
     static let dividerWidth:CGFloat = 0.5
-    static let dividerHeight:CGFloat = 18
-    static let dividerOpacity = 0.8
+    static let dividerHeight:CGFloat = 20
+    static let dividerOpacity = 0.6
     
     // Control Buttons    
     static let switchImageSize: CGFloat = 18
@@ -69,7 +69,7 @@ struct AppConstants {
     // HStack
     static let hStackHeight: CGFloat = 40
     static let hStackSpacing: CGFloat = 5
-    static let hStackAdditionalBottomSpacing: CGFloat = 0 // BOTTOM ADDED SPACING
+    static let hStackAdditionalBottomSpacing: CGFloat = 2 // BOTTOM ADDED SPACING
     
     // EmoteCell
     static let emoteCellFontSize: CGFloat = 13

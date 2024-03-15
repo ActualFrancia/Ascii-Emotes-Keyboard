@@ -14,6 +14,7 @@ protocol EmoteCellDelegate: AnyObject {
 class EmoteCell: UICollectionViewCell {
     weak var delegate: EmoteCellDelegate?
     var emoteLabel: UILabel!
+    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,9 +57,9 @@ class EmoteCell: UICollectionViewCell {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        
-        // Show Box
         self.backgroundColor = UIColor(named: "PressedPrimaryButtonColor")
+        impactFeedback.impactOccurred()
+        // Show Box
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -67,8 +68,8 @@ class EmoteCell: UICollectionViewCell {
         delegate?.didPressEmote(emote: emoteLabel.text!)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
-            // Close Box
             self.backgroundColor = UIColor(named: "PrimaryButtonColor")
+            // Close Box
         }
     }
     
@@ -76,8 +77,8 @@ class EmoteCell: UICollectionViewCell {
         super.touchesCancelled(touches, with: event)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.animationDelay) {
-            // Close Box
             self.backgroundColor = UIColor(named: "PrimaryButtonColor")
+            // Close Box
         }
     }
 }

@@ -7,7 +7,8 @@
 
 import UIKit
 
-
+// Haptics
+import AVFoundation
 
 class KeyboardViewController: UIInputViewController {
     let sections = AppConstants.sections
@@ -37,10 +38,10 @@ class KeyboardViewController: UIInputViewController {
     var backspaceWorkItem: DispatchWorkItem?
     
     // Haptic Engine
-    let lightHaptic = UIImpactFeedbackGenerator(style: .heavy)
-    
+    let buttonHapticFeedback = UIImpactFeedbackGenerator(style: .light)
+    let switchHapticFeedback = UISelectionFeedbackGenerator()
+
     // Loading Overrides
-    
     override func updateViewConstraints() {
         super.updateViewConstraints()
     }
@@ -358,13 +359,15 @@ class KeyboardViewController: UIInputViewController {
     @objc private func freqButtonTouchDown(sender: UIButton) {
         sender.isHighlighted = true
         sender.tintColor = UIColor(named: "PressedControlColor")
-        
-        //TESTING
-        print("TOUCHDOWN!")
      }
      
      @objc private func freqButtonTouchUp(sender: UIButton) {
          sender.isHighlighted = false
+         
+         // Haptic Feedback
+         self.switchHapticFeedback.selectionChanged()
+
+         // Setup Data
          setupData(selectedSection: "Frequently Used")
          
          if isFreqSelected {
@@ -379,9 +382,6 @@ class KeyboardViewController: UIInputViewController {
                   cell.isUnFocuedSelectedSection = true
               }
           }
-         
-         //TESTING
-         print("TOUCHUP!")
     }
     
     // Return Button
@@ -403,18 +403,13 @@ class KeyboardViewController: UIInputViewController {
     @objc private func returnButtonTouchDown(sender: UIButton) {
         sender.isHighlighted = true
         sender.tintColor = UIColor(named: "PressedControlColor")
+        self.switchHapticFeedback.selectionChanged()
         textDocumentProxy.insertText("\n")
-        
-        //TESTING
-        print("TOUCHDOWN!")
     }
 
     @objc private func returnButtonTouchUp(sender: UIButton) {
         sender.isHighlighted = false
         sender.tintColor = UIColor(named: "ControlColor")
-        
-        //TESTING
-        print("TOUCHUP!")
     }
     
     // Back Space Button
@@ -439,11 +434,9 @@ class KeyboardViewController: UIInputViewController {
 
         // Always backspace once
         textDocumentProxy.deleteBackward()
-        
+        self.switchHapticFeedback.selectionChanged()
+
         backspaceWorkStart()
-        
-        //TESTING
-        print("TOUCHDOWN!")
     }
     
     @objc private func backspaceButtonTouchUp(sender: UIButton) {
@@ -451,15 +444,13 @@ class KeyboardViewController: UIInputViewController {
         sender.tintColor = UIColor(named: "ControlColor")
         
         backspaceWorkStop()
-        
-        //TESTING
-        print("TOUCHUP!")
     }
     
     private func backspaceWorkStart() {
         // Create work item
         backspaceWorkItem = DispatchWorkItem { [weak self] in
             self?.backspaceTimer = Timer.scheduledTimer(withTimeInterval: AppConstants.backspaceTimerInterval, repeats: true) { [weak self] _ in
+                self?.switchHapticFeedback.selectionChanged()
                 self?.textDocumentProxy.deleteBackward()
             }
         }
@@ -482,6 +473,9 @@ class KeyboardViewController: UIInputViewController {
 // -------------------------------------------------------------------------------
 extension KeyboardViewController: SectionCellDelegate {
     func didSelectEmoteSection(sectionTitle: String) {
+        // Haptic Feedback
+        self.switchHapticFeedback.selectionChanged()
+        
         // Iterate through section cells to update their selection state
         for (index, section) in sections.enumerated() {
             let isSelected = section.title == sectionTitle
@@ -490,6 +484,7 @@ extension KeyboardViewController: SectionCellDelegate {
             }
         }
         
+        // Setup Data
         setupData(selectedSection: sectionTitle)
     }
 }
@@ -497,9 +492,7 @@ extension KeyboardViewController: SectionCellDelegate {
 extension KeyboardViewController: EmoteCellDelegate {
     func didPressEmote(emote: String) {
         textDocumentProxy.insertText(emote)
-        lightHaptic.impactOccurred()
-        
-        
+
         increaseFrequentlyUsedEmotes(emote: emote)
     }
 }

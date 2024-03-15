@@ -69,7 +69,7 @@ struct AppConstants {
     static let sectionCellPadding: CGFloat = 25
     static let sectionCellFontSize: CGFloat = 16
     static let sectionCellWeight:UIFont.Weight = .regular
-    static let unfocusedSelectedCell = 0.5
+    static let unfocusedSelectedCell = 0.7
     
     // Animation Delay for Cells
     static let animationDelay = 0.01

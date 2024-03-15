@@ -39,7 +39,7 @@ struct AppConstants {
     
     static let emoteCollectionVertialPadding: CGFloat = 0
     static let emoteCollectionHorizontalPadding: CGFloat = 10
-    static let emoteCollectionInternalSpacing: CGFloat = 10
+    static let emoteCollectionInternalSpacing: CGFloat = 9.5
     
     // SectionCollectionView
     static let sectionCollectionVerticalPadding: CGFloat = 3 // Adjust height of SectionCollectionView
@@ -63,7 +63,7 @@ struct AppConstants {
     // EmoteCell
     static let emoteCellFontSize: CGFloat = 13
     static let emoteCellWidth: CGFloat = 130
-    static let emoteCellHeight: CGFloat = 30
+    static let emoteCellHeight: CGFloat = 31
     static let emoteCellCornerRadius: CGFloat = 5
     
     // SectionCell

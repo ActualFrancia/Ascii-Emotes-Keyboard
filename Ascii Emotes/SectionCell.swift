@@ -27,6 +27,16 @@ class SectionCell: UICollectionViewCell {
             updateOpacityBackgroundColor()
         }
     }
+    
+    
+    // Fix for reused cells being highlighted
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        isSelectedSection = false
+    }
+    
+    var sectionIndex: Int?
+    var selectedSectionIndex: Int?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

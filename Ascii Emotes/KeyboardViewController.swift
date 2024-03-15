@@ -19,6 +19,7 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     var previousSelectedSection: String?
+
     
     var data: [(String, Int)] = []
 
@@ -33,6 +34,9 @@ class KeyboardViewController: UIInputViewController {
             updateFreqBackgroundColor()
         }
     }
+    
+    // SectionCell Reuse Fix
+    var selectedSetionIndex: Int?
     
     var backspaceTimer: Timer?
     var backspaceWorkItem: DispatchWorkItem?
@@ -484,6 +488,12 @@ extension KeyboardViewController: SectionCellDelegate {
             let isSelected = section.title == sectionTitle
             if let cell = sectionCollectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? SectionCell {
                 cell.isSelectedSection = isSelected
+                
+                if isSelected {
+                    selectedSetionIndex = index
+                    print("Index Selected : \(selectedSetionIndex!)")
+                    //cell.selectedSectionIndex = index
+                }
             }
         }
         
@@ -526,6 +536,12 @@ extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDe
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SectionCell", for: indexPath) as! SectionCell
             let section = sections[indexPath.item]
             cell.configure(with: section.title)
+            
+            // Update Reused Cells with selectedindex
+            if sectionTitle != "Frequently Used" {
+                cell.isSelectedSection = (indexPath.item == selectedSetionIndex)
+            }
+            
             cell.delegate = self
             return cell
         }

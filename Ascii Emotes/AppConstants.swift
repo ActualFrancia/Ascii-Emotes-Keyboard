@@ -8,8 +8,8 @@
 import UIKit
 
 /* TODO LIST
-   - Localize
-   - Transparent Color Matching
+   - Localize to JP, SP, FR, etc.
+   - DESIGN AND CODE THE ACTUAL APP WITH INSTRUCTIOSN FOR FULL ACESS AND ETC. INCLUDE DIRECT LINKS TO THE SWITCH.
    - Section Symbols?
 */
 
@@ -69,7 +69,7 @@ struct AppConstants {
     static let sectionCellPadding: CGFloat = 25
     static let sectionCellFontSize: CGFloat = 16
     static let sectionCellWeight:UIFont.Weight = .regular
-    static let unfocusedSelectedCell = 0.7
+    static let unfocusedSelectedCell = 0.15
     
     // Animation Delay for Cells
     static let animationDelay = 0.01

@@ -40,7 +40,7 @@ class EmoteCell: UICollectionViewCell {
         layer.shadowRadius = 0
         
         emoteLabel = UILabel()
-        emoteLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        emoteLabel.font = UIFont.systemFont(ofSize: AppConstants.emoteCellFontSize, weight: .regular)
         emoteLabel.textColor = UIColor(named: "TextColor")
         emoteLabel.textAlignment = .center
         

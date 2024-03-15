@@ -7,23 +7,31 @@
 
 import UIKit
 
+/* TODO LIST
+   - Tapic Feedback
+   - Press instant animation
+   - Localize
+   - Transparent Color Matching
+   - Section Symbols?
+*/
+
 struct AppConstants {
     // Emote Sections
     static let sections: [(title: String, symbol: String)] = [
-        ("Happy", "😊"),
-        ("Sad", "😢"),
-        ("Love", "❤️"),
-        ("Angry", "😡"),
-        ("Bear", "🐻"),
-        ("Cat", "🐱")
+        ("Happy", "placeHolder"),
+        ("Sad", "placeHolder"),
+        ("Love", "placeHolder"),
+        ("Angry", "placeHolder"),
+        ("Bear", "placeHolder"),
+        ("Cat", "placeHolder")
     ]
     
     // Keyboard Height
     static let keyboardHeight: CGFloat = 275
     
     // Title Label
-    static let titleSize: CGFloat = 11.25
-    static let titleTopPadding: CGFloat = 10
+    static let titleSize: CGFloat = 11.5
+    static let titleTopPadding: CGFloat = 9
     
     // EmoteCollectionView
     static let emoteCollectionTopAnchorAdjustment: CGFloat = 30
@@ -49,10 +57,11 @@ struct AppConstants {
     // HStack
     static let hStackHeight: CGFloat = 40
     static let hStackHortizonalPadding: CGFloat = 5
-    static let hStackPadding: CGFloat = 5
+    static let hStackSpacing: CGFloat = 5
     
     // EmoteCell
-    static let emoteCellWidth: CGFloat = 100
+    static let emoteCellFontSize: CGFloat = 13
+    static let emoteCellWidth: CGFloat = 130
     static let emoteCellHeight: CGFloat = 30
     static let emoteCellCornerRadius: CGFloat = 5
     
@@ -60,7 +69,7 @@ struct AppConstants {
     static let sectionCellPadding: CGFloat = 25
     static let sectionCellFontSize: CGFloat = 16
     static let sectionCellWeight:UIFont.Weight = .regular
-    static let unfocusedSelectedCell = 0.3
+    static let unfocusedSelectedCell = 0.5
     
     // Animation Delay for Cells
     static let animationDelay = 0.01

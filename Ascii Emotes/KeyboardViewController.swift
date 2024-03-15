@@ -10,14 +10,6 @@ import UIKit
 
 
 class KeyboardViewController: UIInputViewController {
-    
-    // Testing Switch Override
-    /*
-    override var needsInputModeSwitchKey: Bool {
-        get { return true } // Override the value for testing
-    }
-     */
-    
     let sections = AppConstants.sections
     
     var sectionTitle: String = "Frequently Used" {
@@ -43,6 +35,11 @@ class KeyboardViewController: UIInputViewController {
     
     var backspaceTimer: Timer?
     var backspaceWorkItem: DispatchWorkItem?
+    
+    // Haptic Engine
+    let lightHaptic = UIImpactFeedbackGenerator(style: .heavy)
+    
+    // Loading Overrides
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -74,6 +71,13 @@ class KeyboardViewController: UIInputViewController {
         )
             
         view.addConstraint(heightConstraint)
+        
+        // Fix for Touch and Gesture Timeouts new Screen Edges
+        let window = view.window!
+        let gr0 = window.gestureRecognizers![0] as UIGestureRecognizer
+        let gr1 = window.gestureRecognizers![1] as UIGestureRecognizer
+        gr0.delaysTouchesBegan = false
+        gr1.delaysTouchesBegan = false
     }
     
     override func viewDidLoad() {
@@ -285,7 +289,7 @@ class KeyboardViewController: UIInputViewController {
         hStack.axis = .horizontal
         hStack.distribution = .fill
         hStack.alignment = .center
-        hStack.spacing = AppConstants.hStackPadding
+        hStack.spacing = AppConstants.hStackSpacing
                 
         view.addSubview(hStack)
         hStack.translatesAutoresizingMaskIntoConstraints = false
@@ -335,7 +339,7 @@ class KeyboardViewController: UIInputViewController {
 
         freqButton.setImage(UIImage(systemName: "clock", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .normal)
         freqButton.setImage(UIImage(systemName: "clock.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: AppConstants.freqImageSize, weight: .regular)), for: .highlighted)
-        freqButton.tintColor = UIColor(named: "PressedControlColor")
+        freqButton.tintColor = UIColor(named: "PressedFreqColor")
         
         freqButton.addTarget(self, action: #selector(freqButtonTouchDown(sender:)), for: .touchDown)
         freqButton.addTarget(self, action: #selector(freqButtonTouchUp(sender:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
@@ -354,19 +358,30 @@ class KeyboardViewController: UIInputViewController {
     @objc private func freqButtonTouchDown(sender: UIButton) {
         sender.isHighlighted = true
         sender.tintColor = UIColor(named: "PressedControlColor")
+        
+        //TESTING
+        print("TOUCHDOWN!")
      }
      
      @objc private func freqButtonTouchUp(sender: UIButton) {
          sender.isHighlighted = false
-         sender.tintColor = UIColor(named: "ControlColor")
-         
          setupData(selectedSection: "Frequently Used")
+         
+         if isFreqSelected {
+             sender.tintColor = UIColor(named: "PressedFreqColor")
+         } else {
+             sender.tintColor = UIColor(named: "ControlColor")
+
+         }
          
          for (index, _) in sections.enumerated() {
               if let cell = sectionCollectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? SectionCell {
                   cell.isUnFocuedSelectedSection = true
               }
           }
+         
+         //TESTING
+         print("TOUCHUP!")
     }
     
     // Return Button
@@ -389,11 +404,17 @@ class KeyboardViewController: UIInputViewController {
         sender.isHighlighted = true
         sender.tintColor = UIColor(named: "PressedControlColor")
         textDocumentProxy.insertText("\n")
+        
+        //TESTING
+        print("TOUCHDOWN!")
     }
 
     @objc private func returnButtonTouchUp(sender: UIButton) {
         sender.isHighlighted = false
         sender.tintColor = UIColor(named: "ControlColor")
+        
+        //TESTING
+        print("TOUCHUP!")
     }
     
     // Back Space Button
@@ -415,25 +436,38 @@ class KeyboardViewController: UIInputViewController {
     @objc private func backspaceButtonTouchDown(sender: UIButton) {
         sender.isHighlighted = true
         sender.tintColor = UIColor(named: "PressedControlColor")
-        
+
         // Always backspace once
         textDocumentProxy.deleteBackward()
         
+        backspaceWorkStart()
+        
+        //TESTING
+        print("TOUCHDOWN!")
+    }
+    
+    @objc private func backspaceButtonTouchUp(sender: UIButton) {
+        sender.isHighlighted = false
+        sender.tintColor = UIColor(named: "ControlColor")
+        
+        backspaceWorkStop()
+        
+        //TESTING
+        print("TOUCHUP!")
+    }
+    
+    private func backspaceWorkStart() {
         // Create work item
         backspaceWorkItem = DispatchWorkItem { [weak self] in
             self?.backspaceTimer = Timer.scheduledTimer(withTimeInterval: AppConstants.backspaceTimerInterval, repeats: true) { [weak self] _ in
                 self?.textDocumentProxy.deleteBackward()
             }
         }
-        
         // Distpatch work item
         DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.backspaceDisptachAfter, execute: backspaceWorkItem!)
     }
-
-    @objc private func backspaceButtonTouchUp(sender: UIButton) {
-        sender.isHighlighted = false
-        sender.tintColor = UIColor(named: "ControlColor")
-        
+    
+    private func backspaceWorkStop() {
         // Cancel work item if not yet executed
         backspaceWorkItem?.cancel()
         
@@ -463,6 +497,9 @@ extension KeyboardViewController: SectionCellDelegate {
 extension KeyboardViewController: EmoteCellDelegate {
     func didPressEmote(emote: String) {
         textDocumentProxy.insertText(emote)
+        lightHaptic.impactOccurred()
+        
+        
         increaseFrequentlyUsedEmotes(emote: emote)
     }
 }

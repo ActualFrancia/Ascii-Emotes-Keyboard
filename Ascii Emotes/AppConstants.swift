@@ -16,26 +16,28 @@ import UIKit
 struct AppConstants {
     // Emote Sections
     static let sections: [(title: String, symbol: String)] = [
+        ("Greeting", ""),
         ("Happy", ""),
         ("Love", ""),
-        ("Embarrassed", ""),
-        ("Dissatisfied", ""),
-        ("Angry", ""),
-        ("Sad", ""),
-        ("Pain", ""),
-        ("Fear", ""),
-        ("Doubt", ""),
-        ("Surprise", ""),
-        ("Greeting", ""),
         ("Hug", ""),
         ("Wink", ""),
-        ("Sleeping", ""),
-        ("Cat", ""),
-        ("Bear", ""),
-        ("Dog", ""),
         ("Bunny", ""),
+        ("Cat", ""),
+        ("Dog", ""),
+        ("Bear", ""),
+        ("Surprise", ""),
+        ("Fear", ""),
+        ("Confused", ""),
+        ("Doubt", ""),
+        ("Embarrassed", ""),
+        ("Sad", ""),
+        ("Pain", ""),
+        ("Angry", ""),
+        ("Shrug", ""),
+        ("Sleeping", ""),
         ("Lenny", "")
     ]
+
     
     // Keyboard Height
     static let keyboardHeight: CGFloat = 275 + hStackAdditionalBottomSpacing

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9169EF112BA5329C008959FB /* Shrug.json in Resources */ = {isa = PBXBuildFile; fileRef = 9169EF102BA5329C008959FB /* Shrug.json */; };
+		9169EF132BA5385B008959FB /* Confused.json in Resources */ = {isa = PBXBuildFile; fileRef = 9169EF122BA5385B008959FB /* Confused.json */; };
 		91723FAA2BA4BC350023DEDE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 91723FA92BA4BC350023DEDE /* PrivacyInfo.xcprivacy */; };
 		91723FB22BA503EA0023DEDE /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FB12BA503EA0023DEDE /* Love.json */; };
 		91723FB42BA504200023DEDE /* Embarrassed.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FB32BA504200023DEDE /* Embarrassed.json */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		9169EF102BA5329C008959FB /* Shrug.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Shrug.json; sourceTree = "<group>"; };
+		9169EF122BA5385B008959FB /* Confused.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Confused.json; sourceTree = "<group>"; };
 		91723FA92BA4BC350023DEDE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		91723FAC2BA4DB920023DEDE /* Ascii-Emotes-Keyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Ascii-Emotes-Keyboard-Info.plist"; sourceTree = SOURCE_ROOT; };
 		91723FAF2BA503C60023DEDE /* Happy.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Happy.json; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				91723FD32BA506BE0023DEDE /* Lenny.json */,
 				91723FE82BA50BDB0023DEDE /* Bear.json */,
 				9169EF102BA5329C008959FB /* Shrug.json */,
+				9169EF122BA5385B008959FB /* Confused.json */,
 			);
 			path = EmoteData;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				91723FBA2BA505530023DEDE /* Sad.json in Resources */,
 				91965AB62BA2A2710097E6C9 /* Localizable.xcstrings in Resources */,
 				91723FAA2BA4BC350023DEDE /* PrivacyInfo.xcprivacy in Resources */,
+				9169EF132BA5385B008959FB /* Confused.json in Resources */,
 				91723FB82BA504DF0023DEDE /* Angry.json in Resources */,
 				91723FBE2BA505870023DEDE /* Fear.json in Resources */,
 				91723FCE2BA506470023DEDE /* Cat.json in Resources */,

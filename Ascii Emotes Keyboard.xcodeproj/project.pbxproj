@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9169EF112BA5329C008959FB /* Shrug.json in Resources */ = {isa = PBXBuildFile; fileRef = 9169EF102BA5329C008959FB /* Shrug.json */; };
 		9169EF132BA5385B008959FB /* Confused.json in Resources */ = {isa = PBXBuildFile; fileRef = 9169EF122BA5385B008959FB /* Confused.json */; };
+		9169EF172BA77F8A008959FB /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169EF162BA77F8A008959FB /* LaunchScreenView.swift */; };
+		9169EF192BA7A046008959FB /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169EF182BA7A046008959FB /* AboutView.swift */; };
+		9169EF1B2BA7A8FB008959FB /* FollowMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9169EF1A2BA7A8FB008959FB /* FollowMeView.swift */; };
+		9169EF1D2BA7B624008959FB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9169EF1C2BA7B624008959FB /* Localizable.xcstrings */; };
 		91723FAA2BA4BC350023DEDE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 91723FA92BA4BC350023DEDE /* PrivacyInfo.xcprivacy */; };
 		91723FB22BA503EA0023DEDE /* Love.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FB12BA503EA0023DEDE /* Love.json */; };
 		91723FB42BA504200023DEDE /* Embarrassed.json in Resources */ = {isa = PBXBuildFile; fileRef = 91723FB32BA504200023DEDE /* Embarrassed.json */; };
@@ -69,6 +73,10 @@
 /* Begin PBXFileReference section */
 		9169EF102BA5329C008959FB /* Shrug.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Shrug.json; sourceTree = "<group>"; };
 		9169EF122BA5385B008959FB /* Confused.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Confused.json; sourceTree = "<group>"; };
+		9169EF162BA77F8A008959FB /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		9169EF182BA7A046008959FB /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		9169EF1A2BA7A8FB008959FB /* FollowMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowMeView.swift; sourceTree = "<group>"; };
+		9169EF1C2BA7B624008959FB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		91723FA92BA4BC350023DEDE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		91723FAC2BA4DB920023DEDE /* Ascii-Emotes-Keyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Ascii-Emotes-Keyboard-Info.plist"; sourceTree = SOURCE_ROOT; };
 		91723FAF2BA503C60023DEDE /* Happy.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Happy.json; sourceTree = "<group>"; };
@@ -145,8 +153,12 @@
 			isa = PBXGroup;
 			children = (
 				91723FAC2BA4DB920023DEDE /* Ascii-Emotes-Keyboard-Info.plist */,
+				9169EF1C2BA7B624008959FB /* Localizable.xcstrings */,
 				91D649522B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift */,
 				91D649542B9FBBBB005B99FF /* ContentView.swift */,
+				9169EF1A2BA7A8FB008959FB /* FollowMeView.swift */,
+				9169EF182BA7A046008959FB /* AboutView.swift */,
+				9169EF162BA77F8A008959FB /* LaunchScreenView.swift */,
 				91D649562B9FBBBC005B99FF /* Assets.xcassets */,
 				91D649582B9FBBBC005B99FF /* Preview Content */,
 			);
@@ -287,6 +299,7 @@
 			files = (
 				91D649712B9FD57A005B99FF /* Assets.xcassets in Resources */,
 				91D6495A2B9FBBBC005B99FF /* Preview Assets.xcassets in Resources */,
+				9169EF1D2BA7B624008959FB /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +341,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9169EF192BA7A046008959FB /* AboutView.swift in Sources */,
 				91D649552B9FBBBB005B99FF /* ContentView.swift in Sources */,
 				91D649532B9FBBBB005B99FF /* Ascii_Emotes_KeyboardApp.swift in Sources */,
+				9169EF172BA77F8A008959FB /* LaunchScreenView.swift in Sources */,
+				9169EF1B2BA7A8FB008959FB /* FollowMeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

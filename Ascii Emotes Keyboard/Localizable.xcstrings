@@ -1,7 +1,111 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "｡>‿‿◕｡" : {
 
+    },
+    "@actualfrancia" : {
+
+    },
+    "@francia.bsky.social" : {
+
+    },
+    "About" : {
+
+    },
+    "About Ascii Emotes" : {
+
+    },
+    "ActualFrancia" : {
+
+    },
+    "Ascii Emotes" : {
+
+    },
+    "Ascii Emotes for iOS" : {
+
+    },
+    "Auto dark and light mode switching!" : {
+
+    },
+    "by Gino Francia" : {
+
+    },
+    "Easy access to a variety of ASCII emotes!" : {
+
+    },
+    "Enjoy! ｡>‿‿◕｡" : {
+
+    },
+    "Features" : {
+
+    },
+    "Feel free to leave feedback to help development!" : {
+
+    },
+    "Feel free to reach out to me on any social media platform to suggest new emotes or provide feedback on the app!" : {
+
+    },
+    "Follow Me" : {
+
+    },
+    "GitHub Repository" : {
+
+    },
+    "Haptic feedback on all buttons!" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "How to Setup" : {
+
+    },
+    "Modern design language tailored for iOS devices!" : {
+
+    },
+    "Open App Setings" : {
+
+    },
+    "Open Ascii Emotes in Settings" : {
+
+    },
+    "Rate" : {
+
+    },
+    "Setup Instructions:" : {
+
+    },
+    "Share" : {
+
+    },
+    "Social Media" : {
+
+    },
+    "Source Code" : {
+
+    },
+    "Support for multiple language localizations!" : {
+
+    },
+    "Tap 'Keyboards'." : {
+
+    },
+    "The Ascii Emotes keyboard app is the result of a passion project to reintroduce the joy of using fun ASCII emotes in everyday messaging!" : {
+
+    },
+    "The keyboard is designed to provide an easy-to-use experience and features a modern design language tailored for iOS devices." : {
+
+    },
+    "Turn on 'Allow Full Access'." : {
+
+    },
+    "Turn on 'Ascii Emotes'." : {
+
+    },
+    "You can access the complete source code of the app on GitHub!" : {
+
+    }
   },
   "version" : "1.0"
 }

@@ -50,3 +50,21 @@ Connect with me on social media:
 - Xcode
 - UIKit - keyboard extension
 - SwiftUI - app
+
+## Privacy Policy
+
+### Data Collection
+
+We do not collect any user data within the ASCII Emotes Keyboard app.
+
+### Data Sharing
+
+We do not share any user data with third parties.
+
+### User Rights
+
+Since no user data is collected, users do not need to worry about accessing, updating, or deleting any personal information within the ASCII Emotes Keyboard app.
+
+## Developer Contact
+
+For any inquiries regarding the privacy policy or any other concerns, please contact the developer.

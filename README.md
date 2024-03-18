@@ -1,6 +1,6 @@
 <div>
   <img src="https://raw.githubusercontent.com/ActualFrancia/Ascii-Emotes-Keyboard/cd07b92048af242a5dc7676f4184d36b34b8d37b/Ascii%20Emotes%20Keyboard/Assets.xcassets/InternalAppIcon.imageset/AppIcon~ios-marketing.png" alt="Ascii Emotes App Icon" width="100" height="100">
-  <h1>ASCII Emotes Keyboard</h1>
+  <h1>ASCII Emotes Keyboard ｡>‿‿◕｡</h1>
 </div>
 <p>Now available on the iOS App Store!</p>
 <p>Developed by Gino Francia!</p>

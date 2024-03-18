@@ -14,13 +14,13 @@ struct AboutView: View {
                 // About the Keyboard Section
                 Section {
                     VStack (alignment: .leading, spacing: 10) {
-                        Text("The Ascii Emotes keyboard app is the result of a passion project to reintroduce the joy of using fun ASCII emotes in everyday messaging!")
-                        Text("The keyboard is designed to provide an easy-to-use experience and features a modern design language tailored for iOS devices.")
+                        Text(LocalizedStringKey("The Ascii Emotes keyboard app is the result of a passion project to reintroduce the joy of using fun ASCII emotes in everyday messaging!"))
+                        Text(LocalizedStringKey("The keyboard is designed to provide an easy-to-use experience and features a modern design language tailored for iOS devices."))
                         Text("｡>‿‿◕｡")
                     }
                     .padding(.bottom, 3)
                 } header: {
-                    Text("About Ascii Emotes")
+                    Text(LocalizedStringKey("About Ascii Emotes"))
                 }
                 // Features
                 Section {
@@ -31,7 +31,7 @@ struct AboutView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.text)
-                            Text("Easy access to a variety of ASCII emotes!")
+                            Text(LocalizedStringKey("Easy access to a variety of ASCII emotes!"))
                         }
                         HStack {
                             Image(systemName: "paintbrush.fill")
@@ -39,7 +39,7 @@ struct AboutView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.text)
-                            Text("Modern design language tailored for iOS devices!")
+                            Text(LocalizedStringKey("Modern design language tailored for iOS devices!"))
                         }
                         HStack {
                             Image(systemName: "moon.stars.fill")
@@ -47,7 +47,7 @@ struct AboutView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.yellow)
-                            Text("Auto dark and light mode switching!")
+                            Text(LocalizedStringKey("Auto dark and light mode switching!"))
                         }
                         HStack {
                             Image(systemName: "globe")
@@ -55,7 +55,7 @@ struct AboutView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.blue)
-                            Text("Support for multiple language localizations!")
+                            Text(LocalizedStringKey("Support for multiple language localizations!"))
                         }
                         HStack {
                             Image(systemName: "iphone.radiowaves.left.and.right")
@@ -63,16 +63,16 @@ struct AboutView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.text)
-                            Text("Haptic feedback on all buttons!")
+                            Text(LocalizedStringKey("Haptic feedback on all buttons!"))
                         }
                     }
                 } header: {
-                    Text("Features")
+                    Text(LocalizedStringKey("Features"))
                 }
                 // GitHub Section
                 Section {
                     VStack (alignment: .leading, spacing: 10) {
-                        Text("You can access the complete source code of the app on GitHub!")
+                        Text(LocalizedStringKey("You can access the complete source code of the app on GitHub!"))
                         HStack {
                             Spacer()
                             Button(action: {
@@ -81,7 +81,7 @@ struct AboutView: View {
                                 }
                             }) {
                                 Image(systemName: "link")
-                                Text("GitHub Repository")
+                                Text(LocalizedStringKey("GitHub Repository"))
                                 Image(systemName: "chevron.right")
                                 
                             }
@@ -90,13 +90,13 @@ struct AboutView: View {
                         .buttonStyle(.bordered)
                     }
                 } header: {
-                    Text("Source Code")
+                    Text(LocalizedStringKey("Source Code"))
                 } footer: {
-                    Text("Feel free to leave feedback to help development!")
+                    Text(LocalizedStringKey("Feel free to leave feedback to help development!"))
                 }
             }
         }
-        .navigationTitle("About")
+        .navigationTitle(LocalizedStringKey("About"))
     }
 }
 

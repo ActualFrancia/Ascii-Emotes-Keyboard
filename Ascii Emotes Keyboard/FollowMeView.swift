@@ -86,12 +86,12 @@ struct FollowMeView: View {
                         }
                     }
                 } header: {
-                    Text("Social Media")
+                    Text(LocalizedStringKey("Social Media"))
                 } footer: {
-                    Text("Feel free to reach out to me on any social media platform to suggest new emotes or provide feedback on the app!")
+                    Text(LocalizedStringKey("Feel free to reach out to me on any social media platform to suggest new emotes or provide feedback on the app!"))
                 }
             }
-        } .navigationTitle("Follow Me")
+        } .navigationTitle(LocalizedStringKey("Follow Me"))
     }
 }
 

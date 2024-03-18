@@ -22,9 +22,9 @@ struct ContentView: View {
                             .frame(width: 200)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
-                        Text("Ascii Emotes")
+                        Text(LocalizedStringKey("Ascii Emotes"))
                             .font(.largeTitle)
-                        Text("by Gino Francia")
+                        Text(LocalizedStringKey("by Gino Francia"))
                             .font(.headline)
                     }
                     .padding()
@@ -33,7 +33,7 @@ struct ContentView: View {
                 // How to Setup Section
                 Section {
                     VStack (alignment: .leading) {
-                        Text("Setup Instructions:")
+                        Text(LocalizedStringKey("Setup Instructions:"))
                             .font(.headline)
                         HStack {
                             Image(systemName: "hand.tap")
@@ -41,7 +41,7 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.blue)
-                            Text("Open Ascii Emotes in Settings")
+                            Text(LocalizedStringKey("Open Ascii Emotes in Settings"))
                         }
                         HStack {
                             Image(systemName: "keyboard")
@@ -49,7 +49,7 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.text)
-                            Text("Tap 'Keyboards'.")
+                            Text(LocalizedStringKey("Tap 'Keyboards'."))
                         }
                         HStack {
                             Image(systemName: "checkmark.circle.fill")
@@ -57,7 +57,7 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.blue)
-                            Text("Turn on 'Ascii Emotes'.")
+                            Text(LocalizedStringKey("Turn on 'Ascii Emotes'."))
                         }
                         HStack {
                             Image(systemName: "checkmark.circle.fill")
@@ -65,7 +65,7 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.blue)
-                            Text("Turn on 'Allow Full Access'.")
+                            Text(LocalizedStringKey("Turn on 'Allow Full Access'."))
                         }
                         HStack {
                             Image(systemName: "heart.circle.fill")
@@ -73,7 +73,7 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(width: 19)
                                 .foregroundStyle(Color.red)
-                            Text("Enjoy! ｡>‿‿◕｡")
+                            Text(LocalizedStringKey("Enjoy! ｡>‿‿◕｡"))
                         }
                         HStack {
                             Spacer()
@@ -82,7 +82,7 @@ struct ContentView: View {
                                 UIApplication.shared.open(settingsURL)
                             }) {
                                 Image(systemName: "gearshape.fill")
-                                Text("Open App Setings")
+                                Text(LocalizedStringKey("Open App Setings"))
                                 Image(systemName: "chevron.right")
                             }
                             .buttonStyle(.bordered)
@@ -90,7 +90,7 @@ struct ContentView: View {
                         }
                     }
                 } header: {
-                    Text("How to Setup")
+                    Text(LocalizedStringKey("How to Setup"))
                 }
                 // Section Buttons
                 Section {
@@ -98,13 +98,13 @@ struct ContentView: View {
                     NavigationLink(destination: AboutView()) {
                         Image(systemName: "info.circle.fill")
                             .foregroundStyle(Color.blue)
-                        Text("About")
+                        Text(LocalizedStringKey("About"))
                     }
                     // Follow Me
                     NavigationLink(destination: FollowMeView()) {
                         Image(systemName: "person.fill")
                             .foregroundStyle(Color.cyan)
-                        Text("Follow Me")
+                        Text(LocalizedStringKey("Follow Me"))
                     }
                     // Rate App
                     Button(action: {
@@ -113,7 +113,7 @@ struct ContentView: View {
                         HStack {
                             Image(systemName: "star.fill")
                                 .foregroundStyle(Color.yellow)
-                            Text("Rate")
+                            Text(LocalizedStringKey("Rate"))
                                 .foregroundStyle(Color.text)
                             Spacer()
                             Image(systemName: "square.and.arrow.up")
@@ -129,7 +129,7 @@ struct ContentView: View {
                         HStack {
                             Image(systemName: "link")
                                 .foregroundStyle(Color.gray)
-                            Text("Share")
+                            Text(LocalizedStringKey("Share"))
                                 .foregroundStyle(Color.text)
                             Spacer()
                             Image(systemName: "square.and.arrow.up")
@@ -139,7 +139,7 @@ struct ContentView: View {
                         }
                     }
                 } header: {
-                    Text("Ascii Emotes for iOS")
+                    Text(LocalizedStringKey("Ascii Emotes for iOS"))
                 }
             }
         }

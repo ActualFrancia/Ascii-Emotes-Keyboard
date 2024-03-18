@@ -288,6 +288,7 @@
 				id,
 				"zh-Hant",
 				da,
+				"pt-PT",
 			);
 			mainGroup = 91D649462B9FBBBB005B99FF;
 			productRefGroup = 91D649502B9FBBBB005B99FF /* Products */;

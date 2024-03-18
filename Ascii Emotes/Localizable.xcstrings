@@ -46,6 +46,12 @@
             "value" : "Zangado"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Злой"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -103,6 +109,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Urso"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Медведь"
           }
         },
         "zh-Hans" : {
@@ -164,6 +176,12 @@
             "value" : "Coelhinho"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зайчик"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -221,6 +239,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gato"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кошка"
           }
         },
         "zh-Hans" : {
@@ -282,6 +306,12 @@
             "value" : "Confuso"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Смущённый"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -339,6 +369,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cão"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Собака"
           }
         },
         "zh-Hans" : {
@@ -400,6 +436,12 @@
             "value" : "Dúvida"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сомнение"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -457,6 +499,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Envergonhado"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Смущённый"
           }
         },
         "zh-Hans" : {
@@ -518,6 +566,12 @@
             "value" : "Medo"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страх"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -575,6 +629,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Frequentemente Usado"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Часто используемые"
           }
         },
         "zh-Hans" : {
@@ -636,6 +696,12 @@
             "value" : "Saudação"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приветствие"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -693,6 +759,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Feliz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Счастливый"
           }
         },
         "zh-Hans" : {
@@ -754,6 +826,12 @@
             "value" : "Abraço"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Объятие"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -808,6 +886,12 @@
           }
         },
         "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lenny"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lenny"
@@ -872,6 +956,12 @@
             "value" : "Amor"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Любовь"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -929,6 +1019,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dor"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Боль"
           }
         },
         "zh-Hans" : {
@@ -990,6 +1086,12 @@
             "value" : "Triste"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Грустный"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1047,6 +1149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Encolher os ombros"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожимание плечами"
           }
         },
         "zh-Hans" : {
@@ -1108,6 +1216,12 @@
             "value" : "Dormindo"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спящий"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1167,6 +1281,12 @@
             "value" : "Surpresa"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удивление"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1224,6 +1344,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Piscadela"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подмигивание"
           }
         },
         "zh-Hans" : {

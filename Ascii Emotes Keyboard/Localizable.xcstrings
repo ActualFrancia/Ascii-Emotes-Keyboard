@@ -51,6 +51,12 @@
             "value" : "｡>‿‿◕｡"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "｡>‿‿◕｡"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -104,6 +110,12 @@
           }
         },
         "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@actualfrancia"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "@actualfrancia"
@@ -167,6 +179,12 @@
             "value" : "@francia.bsky.social"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@francia.bsky.social"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -223,6 +241,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sobre"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О приложении"
           }
         },
         "zh-Hans" : {
@@ -283,6 +307,12 @@
             "value" : "Sobre Ascii Emoticons"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ascii Эмоты для iOS"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -336,6 +366,12 @@
           }
         },
         "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ActualFrancia"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ActualFrancia"
@@ -399,6 +435,12 @@
             "value" : "Ascii Emoticons"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ascii Эмоты"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -455,6 +497,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Emoticons Ascii para iOS"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ascii Эмоты для iOS"
           }
         },
         "zh-Hans" : {
@@ -515,6 +563,12 @@
             "value" : "Alternância automática entre o modo escuro e o modo claro!"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автоматическое переключение тёмного и светлого режимов!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -571,6 +625,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Por Gino Francia"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "От Gino Francia"
           }
         },
         "zh-Hans" : {
@@ -631,6 +691,12 @@
             "value" : "Acesso fácil a uma variedade de emoticons Ascii!"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лёгкий доступ к различным ASCII эмотиконам!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -687,6 +753,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aproveite! ｡>‿‿◕｡"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наслаждайтесь! ｡>‿‿◕｡"
           }
         },
         "zh-Hans" : {
@@ -747,6 +819,12 @@
             "value" : "Funcionalidades"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Особенности"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -803,6 +881,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sinta-se à vontade para deixar feedback para ajudar no desenvolvimento!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не стесняйтесь оставлять отзывы, чтобы помочь разработке!"
           }
         },
         "zh-Hans" : {
@@ -863,6 +947,12 @@
             "value" : "Sinta-se à vontade para entrar em contato comigo em qualquer plataforma de mídia social para sugerir novos emoticons ou fornecer feedback sobre o aplicativo!"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не стесняйтесь связаться со мной на любой социальной платформе, чтобы предложить новые эмотиконы или оставить обратную связь о приложении!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -919,6 +1009,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Segue-me"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подпишитесь на меня"
           }
         },
         "zh-Hans" : {
@@ -979,6 +1075,12 @@
             "value" : "Repositório do GitHub"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Репозиторий GitHub"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1035,6 +1137,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Feedback háptico em todos os botões!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тактильная обратная связь для всех кнопок!"
           }
         },
         "zh-Hans" : {
@@ -1095,6 +1203,12 @@
             "value" : "Como Configurar"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Как настроить"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1151,6 +1265,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Linguagem de design moderna adaptada para dispositivos iOS!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Современный дизайн, разработанный специально для устройств iOS!"
           }
         },
         "zh-Hans" : {
@@ -1211,6 +1331,12 @@
             "value" : "Abrir Configurações da Aplicação"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть настройки приложения"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1267,6 +1393,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir Emoticons Ascii nas Definições"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть Ascii Emotes в настройках"
           }
         },
         "zh-Hans" : {
@@ -1327,6 +1459,12 @@
             "value" : "Avaliar"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оценить"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1383,6 +1521,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Instruções de Configuração:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Инструкции по настройке"
           }
         },
         "zh-Hans" : {
@@ -1443,6 +1587,12 @@
             "value" : "Partilhar"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поделиться"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1499,6 +1649,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redes Sociais"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Социальные медиа"
           }
         },
         "zh-Hans" : {
@@ -1559,6 +1715,12 @@
             "value" : "Código Fonte"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Исходный код"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1615,6 +1777,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Suporte para múltiplas localizações de idiomas!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поддержка множественной локализации!"
           }
         },
         "zh-Hans" : {
@@ -1675,6 +1843,12 @@
             "value" : "Toque em 'Teclados'."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите на \"Клавиатуры\"."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1731,6 +1905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A aplicação de teclado Ascii Emotes é o resultado de um projeto de paixão para reintroduzir a alegria de usar emoticons ASCII divertidos em mensagens diárias!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приложение клавиатуры Ascii Emotes является результатом страстного проекта по восстановлению радости использования весёлых ASCII эмотиконов в повседневной переписке!"
           }
         },
         "zh-Hans" : {
@@ -1791,6 +1971,12 @@
             "value" : "O teclado é projetado para fornecer uma experiência fácil de usar e apresenta uma linguagem de design moderna adaptada para dispositivos iOS."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Клавиатура разработана для обеспечения простого и удобного использования и имеет современный дизайн, разработанный специально для устройств iOS."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1847,6 +2033,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ative 'Permitir Acesso Completo'."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включите \"Разрешить полный доступ\"."
           }
         },
         "zh-Hans" : {
@@ -1907,6 +2099,12 @@
             "value" : "Ative 'Emoticons Ascii'."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включите \"Ascii Эмоты\"."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1963,6 +2161,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Você pode aceder ao código-fonte completo do aplicativo no GitHub!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете получить доступ ко всему исходному коду приложения на GitHub!"
           }
         },
         "zh-Hans" : {

@@ -1,6 +1,9 @@
-# ASCII Emotes Keyboard
-
-Welcome to the ASCII Emotes Keyboard repository!
+<div>
+  <img src="https://raw.githubusercontent.com/ActualFrancia/Ascii-Emotes-Keyboard/cd07b92048af242a5dc7676f4184d36b34b8d37b/Ascii%20Emotes%20Keyboard/Assets.xcassets/InternalAppIcon.imageset/AppIcon~ios-marketing.png" alt="Ascii Emotes App Icon" width="100" height="100">
+  <h1>ASCII Emotes Keyboard</h1>
+</div>
+<p>Now available on the iOS App Store!</p>
+<p>Developed by Gino Francia!</p>
 
 ## About
 
@@ -35,9 +38,15 @@ You can access the complete source code of ASCII Emotes here on GitHub! Contribu
 ## Social Media
 
 Connect with me on social media:
-- [X: @actualfrancia](https://twitter.com/actualfrancia)
-- [BlueSky: @francia.bsky.social](https://bsky.app/profile/francia.bsky.social)
+- [Twitter](https://twitter.com/actualfrancia)
+- [BlueSky](https://bsky.app/profile/francia.bsky.social)
 
 ## Developer
 
 - Developed by Gino Francia
+
+## Built With
+
+- Xcode
+- UIKit - keyboard extension
+- SwiftUI - app

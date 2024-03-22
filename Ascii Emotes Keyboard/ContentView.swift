@@ -126,12 +126,16 @@ struct ContentView: View {
                     }
                     // Share App
                     Button(action: {
-                        let activityViewController = UIActivityViewController(activityItems: [appStoreLink], applicationActivities: nil)
-                        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                            if let window = windowScene.windows.first {
-                                window.rootViewController?.present(activityViewController, animated: true, completion: nil)
-                            }
+                        let AV = UIActivityViewController(activityItems: [appStoreLink], applicationActivities: nil)
+                        let activeScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+                        let rootViewController = (activeScene?.windows ?? []).first(where: { $0.isKeyWindow })?.rootViewController
+                        // for iPad fix
+                        if UIDevice.current.userInterfaceIdiom == .pad{
+                            AV.popoverPresentationController?.sourceView = rootViewController?.view
+                            AV.popoverPresentationController?.sourceRect = .zero
                         }
+                        rootViewController?.present(AV, animated: true, completion: nil)
+                        
                     }) {
                         HStack {
                             Image(systemName: "link")

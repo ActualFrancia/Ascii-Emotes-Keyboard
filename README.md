@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/ActualFrancia/Ascii-Emotes-Keyboard/cd07b92048af242a5dc7676f4184d36b34b8d37b/Ascii%20Emotes%20Keyboard/Assets.xcassets/InternalAppIcon.imageset/AppIcon~ios-marketing.png" alt="Ascii Emotes App Icon" width="100" height="100">
   <h1>ASCII Emotes Keyboard ｡>‿‿◕｡</h1>
 </div>
-<p>Now available on the iOS App Store!</p>
+<a href="https://apps.apple.com/us/app/ascii-emotes/id6479488898">Now available on the iOS App Store!</a>
 <p>Developed by Gino Francia!</p>
 
 ## About

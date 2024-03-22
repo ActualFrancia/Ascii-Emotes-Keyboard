@@ -12,7 +12,6 @@ The ASCII Emotes Keyboard app is the result of a passion project to reintroduce 
 ## Features
 
 - Easy access to a variety of ASCII emotes!
-- Haptic feedback on all buttons!
 - Support for multiple language localizations!
 - Auto dark mode and light mode switching!
 - Modern design language tailored for iOS devices!

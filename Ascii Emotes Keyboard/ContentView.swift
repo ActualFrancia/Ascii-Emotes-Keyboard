@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    // TODO: Once on the app store, add links to app in Rate and Share App
+    let appStoreLink = "https://apps.apple.com/us/app/ascii-emotes/id6479488898"
     
     var body: some View {
         NavigationStack {
@@ -108,7 +108,9 @@ struct ContentView: View {
                     }
                     // Rate App
                     Button(action: {
-                        print("App Rate Pressed")
+                        if let url = URL(string: appStoreLink) {
+                            UIApplication.shared.open(url)
+                        }
                     }) {
                         HStack {
                             Image(systemName: "star.fill")
@@ -124,7 +126,12 @@ struct ContentView: View {
                     }
                     // Share App
                     Button(action: {
-                        print("Share Pressed")
+                        let activityViewController = UIActivityViewController(activityItems: [appStoreLink], applicationActivities: nil)
+                        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                            if let window = windowScene.windows.first {
+                                window.rootViewController?.present(activityViewController, animated: true, completion: nil)
+                            }
+                        }
                     }) {
                         HStack {
                             Image(systemName: "link")
